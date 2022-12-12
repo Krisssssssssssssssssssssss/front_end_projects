@@ -1,0 +1,308 @@
+/* 2 problem - 1 reshenie */
+/* bidejkji decata shto se so float lebdat, parentot nema visina, i mozhne dopolnitelni elementi da se vgezdat izmegju, mozheme toa da go reshime so setiranje na clear:both preku klasa na element sho kje go dodademe kako posledno dete pod decata so float */
+
+/* .clear {
+  clear: both;
+} */
+
+/* 2 problem - 2 reshenie */
+/* bidejkji decata shto se so float lebdat, parentot nema visina, i mozhne dopolnitelni elementi da se vgezdat izmegju, mozheme toa da go reshime so setiranje na clear:both preku after na parentot chiii shto deca lebdat */
+/* 
+
+
+
+.parent3:after {
+  content: "";
+  clear: both;
+  display: block;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #528aa4;
+}
+
+.header img {
+  float: left;
+  display: inline-block;
+  margin-left: 9%;
+  margin-top: 10px;
+}
+
+.nav {
+  float: right;
+  display: inline-block;
+  word-spacing: 30px;
+  margin-right: 8%;
+  margin-top: 30px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+a:hover {
+  color: burlywood;
+}
+
+.header:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.picture img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 35px;
+  padding-bottom: 20px;
+}
+.fa-laptop {
+  font-size: 50px;
+  text-align: center;
+  width: 25%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  float: left;
+  background-color: #dfddd8;
+}
+
+.fa-tablet-screen-button {
+  font-size: 50px;
+  text-align: center;
+  width: 25%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  float: left;
+  background-color: #c2b9a3;
+}
+
+.fa-mobile-screen-button {
+  font-size: 50px;
+  text-align: center;
+  width: 25%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  float: left;
+  background-color: #82e3cf;
+}
+
+.fa-comments {
+  font-size: 50px;
+  text-align: center;
+  width: 25%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  float: left;
+  background-color: #97a6b2;
+}
+
+.mid-container {
+  display: block;
+}
+
+.mid-container:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.image-desc p {
+  display: inline-block;
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mc {
+  background-color: #dfddd8;
+}
+
+.ip {
+  background-color: #c2b9a3;
+}
+
+.X {
+  background-color: #82e3cf;
+}
+
+.ab {
+  background-color: #97a6b2;
+}
+.image-desc:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.ipad img {
+  float: left;
+  width: 50%;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #b3cfd3;
+}
+.ipad .paragraph-one {
+  float: left;
+  width: 50%;
+  color: white;
+  text-align: center;
+  background-color: #97a6b2;
+  font-size: 17px;
+}
+
+.ipad {
+  background-color: #97a6b2;
+}
+.ipad:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.iphonex {
+  float: left;
+  width: 50%;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  background-color: #b3cfd3;
+}
+.paragraph-two {
+  float: left;
+  width: 50%;
+  color: white;
+  text-align: center;
+  background-color: #c2b9a3;
+  font-size: 17px;
+}
+
+.iphone {
+  background-color: #c2b9a3;
+}
+.iphone:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.picc {
+  float: left;
+  width: 50%;
+  background-color: #b3cfd3;
+  display: block;
+  padding-left: 300px;
+  margin-left: auto;
+margin-right: auto;
+}
+.paragraph-three {
+  float: left;
+  width: 50%;
+  color: white;
+  text-align: center;
+  background-color: #ff9777;
+  font-size: 17px;
+}
+
+
+
+.mac:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.main-content:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.team {
+  float: left;
+  width: 33.333%;
+  background-color: #97a6b2;
+  text-align: center;
+}
+.salary {
+  float: left;
+  width: 33.333%;
+  background-color: #c2b9a3;
+  text-align: center;
+}
+
+.earnings {
+  float: left;
+  width: 33.333%;
+  background-color: #82e3cf;
+  text-align: center;
+}
+
+
+
+.TSE h3 {
+  font-size: 27px;
+}
+
+.TSE p {
+  color: white;
+}
+
+.TSE:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.social-media {
+
+margin-left: auto;
+margin-right: auto;
+text-align: center ;
+padding-top: 80px;
+padding-bottom: 65px;
+
+}
+
+.social-media a {
+  font-size: 30px;
+  text-decoration: none;
+ padding-left: 0.1em;
+ padding-right: 0.1em;
+ margin-left: 90px;
+ margin-right: 90px;
+
+}
+footer p {
+  text-align: center;
+  color: white;
+}
+
+footer {
+  background-color: #54444f;
+  padding: 5px;
+}
