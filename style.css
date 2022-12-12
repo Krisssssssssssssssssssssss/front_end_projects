@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  background-color: rgba(39, 40, 51);
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  height: 100vh;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 25px 25px 0px;
+}
+
+.navi a {
+  margin-left: 15px;
+}
+
+.signup {
+  background-color: #e44c65;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.banner {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+
+/* 
+.banner-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fa-chevron-down {
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    transform: translateX(-50%)
+} */
+
+.blue-car {
+  background-image: url(./picture1.jpg);
+}
+
+.car {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.blue-content {
+  position: absolute;
+  bottom: 0%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(39, 40, 51, 0.85);
+  height: 40%;
+  padding: 100px 30px;
+  border-top: 5px solid #e44c65;
+}
+
+.blue-content div {
+  flex-basis: 33.333%;
+  padding: 0px 80px;
+}
+
+.red-car-one {
+  background-image: url(./picture2.jpeg);
+}
+
+.red-content {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background-color: rgba(39, 40, 51, 0.85);
+  height: 100%;
+  width: 33.333%;
+  border-left: 5px solid rgb(45, 212, 81);
+  padding: 100px 30px 100px 80px;
+  text-align: left;
+}
+
+.red-content a,
+.red-content-two a {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: gray;
+}
+
+.red-content a:hover {
+  border-color: rgb(45, 212, 81);
+}
+
+.red-car-two {
+  background-image: url(./picture3.jpg);
+}
+.red-content.two {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-left: 5px solid rgb(45, 212, 81);
+}
+
+.red-content-two .content {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 33.333%;
+  padding: 0px 80px;
+  background-color: rgba(39, 40, 51, 0.85);
+  padding: 100px 80px 100px 30px;
+  text-align: left;
+  border-right: 5px solid rgb(93, 93, 238);
+  height: 100%;
+}
+
+.red-content-two a:hover {
+  border-color: rgb(93, 93, 238);
+}
+
+.gray-button{
+  text-align: center;
+
+}
+
+.gray-button a {
+
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: gray;
+  border: 1px solid gray;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.last-one {
+  margin-bottom: 20px;
+}
+
+.container {
+  flex-basis: 33.333%;
+  padding: 20px 30px;
+}
+
+.bottom-part {
+  padding-bottom: 40px;
+}
+
+.border {
+  border-top: 3px solid #e44c65;
+}
+
+.fa-comment {
+  font-size: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.pink {
+  background-color: #e44c65;
+  text-align: center;
+  padding: 50px 0;
+  
+}
+.pink input {
+  background-color: #e44c65;
+  border: 2px solid gray;
+
+  margin-right: 15px;
+  height: 35px;
+  box-shadow: none;
+}
+
+.pink input:focus {
+  outline: none;
+  border: 2px solid white;
+  box-shadow: none;
+}
+
+.pink input::placeholder  {
+    color: gray;
+    padding-left: 15px;
+}
+
+.pink button {
+  padding: 10px 30px;
+  background-color: white;
+  color: #e44c65;
+  border: 0px;
+  border-radius: 5%;
+}
+
+.pink button:hover {
+  cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-right: -25px;
+    color: rgba(255, 255, 255, .1);
+    
+}
+.fa-brands, .fa-envelope {
+    font-size: 25px;
+    color: white;
+}
+footer a:not(:last-of-type) {
+    margin-right: 25px;
+}
+
+.html {
+    text-decoration: underline dotted;
+}
