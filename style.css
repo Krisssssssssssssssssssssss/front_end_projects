@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.wrap {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section {
+margin-top: 65px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Top section */
+
+.top-section {
+    background-image: url(./images/hero.jpg);
+    background-size: cover;
+    position: relative;
+    
+}
+.top-section-filter {
+    background: radial-gradient(rgb(58, 58, 58), rgba(58, 58, 58));
+  opacity: 0.7;
+  height: 100vh;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar a, .nav-bar li {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    
+}
+
+.nav-bar li {
+    margin-left: 20px;
+}
+
+.top-section-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+   
+}
+.top-section-middle p {
+    margin-bottom: 40px;
+}
+.btn {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(48, 137, 253);
+    padding: 15px 35px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+/* in between section */
+.h1-section hr {
+    border: none;
+border-top: 3px solid rgb(88, 156, 245);
+width: 20%;
+margin-top: 20px;
+}
+.h1-section {
+    width: 33.33%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* 1st grid */
+.pictures {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.row-one {
+    display: flex;
+}
+.row-two {
+    display: flex;
+}
+.small-pic {
+    flex-basis: 40%;
+    padding: 10px;
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 300px;
+}
+.big-pic {
+    flex-basis: 60%;
+    padding: 10px;
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 300px;
+}
+
+/* 2nd grid */
+.main-section {
+    background-color: rgb(245, 240, 240);
+}
+.main-grid {
+    display: flex;
+    text-align: center;
+}
+.photo {
+    flex-basis: 33.333%;
+}
+
+.fa-regular, .fa-solid {
+    color: lightblue;
+    font-size: 60px;
+}
+.newsletter {
+    margin-top: 100px;
+}
+
+.subscribe .btn2 {
+    padding: 10px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(48, 137, 253);
+}
+.email {
+    line-height: 27px;
+    width: 55%;
+    margin-right: 30px;
+    color: gray;
+    border: 2px solid gray;
+}
+
+.ms-padding {
+    padding: 50px 0px;
+}
+
+.subscribe {
+    margin-top: 30px;
+    display: flex;
+}
+
+/* footer */
+footer {
+    background-color: rgb(49, 49, 49);
+}
+.footer-inner {
+    color: white;
+    text-align: center;
+    padding: 50px 0px;
+    
+}
+.socials {
+    margin: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+/* .footer-inner-margin {
+    margin-left: -30px;
+} */
+
+
+ /* ======================== Tablet ============================
+ */
+ @media (max-width: 768px) {
+    .h1-section {
+        width: 90%;
+    }
+    .h1-section hr {
+        margin-top: 30px;
+    }
+    .row-one {
+        flex-direction: column;
+    }
+    .row-two {
+        flex-direction: column;
+    }
+    .main-grid {
+        flex-direction: column;
+    }
+    .photo {
+        margin: 30px 0px;
+    }
+    .subscribe {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .subscribe .email {
+        width: 100%;
+        margin-right: 0px;
+    }
+    .subscribe .btn2 {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+ }
+
+ /* ======================== Mobile ============================
+ */
+ @media (max-width: 425px) {
+    .nav-bar  {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-bar p {
+        font-size: 20px;
+    }
+    .nav-bar ul {
+        padding-left: 0px;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 20px;
+    }
+    .top-section .wrap {
+        width: 100%;
+    }
+
+    .top-section-middle {
+        margin-top: 30px;
+    }
+
+}
