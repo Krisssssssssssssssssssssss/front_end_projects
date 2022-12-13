@@ -1,0 +1,390 @@
+body {
+    margin: 0px;
+    background-color: white;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+h1, h2, h3, h4, .logo p {
+    text-transform: uppercase;
+    color: black;
+}
+
+.wrap {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.gray {
+ background-color: rgb(246, 246, 246);
+}
+
+.btn {
+    background-color: rgb(48, 47, 47);
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, .3);
+    padding: 10px 20px;
+}
+
+.btn:hover {
+    background-color: rgb(45, 45, 45);
+    cursor: pointer;
+}
+
+
+
+.bottom-section p {
+    color: rgb(48, 47, 47);
+}
+
+
+/* ----------------------------------------------------------
+Nav Bar */
+
+.icon
+{
+    display: none;
+    text-decoration: none;
+    color: black;
+}
+
+
+.navbar {
+ padding-top: 20px;
+ padding-bottom: 20px;
+}
+
+.navbar-inner {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+display: flex;
+justify-content: space-between;
+margin-right: -15px;
+}
+
+.menu a {
+    display: inline-block;
+    justify-content: space-between;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+}
+.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100%;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .logo p {
+    color: black;
+    font-size: 25px;
+}
+
+/* ----------------------------------------------------------
+Top Section*/
+
+.top-section {
+    height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-section-inner, .mid-section-inner {
+    flex-basis: 75%;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.top-section-inner h4 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* -- ---------------------------------------------------------------
+  Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.cards-inner {
+    flex-basis: 100%;
+}
+
+.cards-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+.card {
+    flex-basis: 25%;
+    padding: 30px 30px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, .3);
+    color: white;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.bignum {
+    font-size: 40px;
+    margin-bottom: 20px;
+
+}
+
+.card1 {
+    background-color: rgb(255, 84, 68);
+}
+.card2 {
+    background-color: rgb(170, 45, 182);
+}
+.card3 {
+    background-color: rgb(30, 194, 164);
+}
+.card4 {
+    background-color: rgb(39, 139, 224);
+}
+
+.card p {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------
+Mid Sector */
+
+.mid-section-inner {
+    text-align: center;
+    
+    
+}
+.mid-section-inner-top a {
+    background-color: rgb(246, 246, 246);
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, .3);
+    color: black;
+}
+
+.mid-section-inner-top a:hover {
+    background-color: rgb(48, 47, 47);
+    color: white;
+}
+
+.mid-section-inner-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.portfolio {
+    background-color: white;
+    flex-basis: calc(33.333% - 20px); 
+    box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, .3);
+    margin-right: 20px;
+
+    
+}
+
+.portfolio:hover {
+    border: 2px solid black;
+}
+
+.portfolio img {
+    width: 100%
+}
+
+.a {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------------
+Bottom Sector */
+
+.codepreneurs {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.codepreneurs p {
+    color: gray;
+    margin-bottom: 35px;
+}
+
+.codepreneurs-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+hr {
+    width: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(246, 246, 246);
+    
+}
+
+ul {
+    list-style: none;
+    font-size: 25px;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+
+/* --------------------------------------------------------
+Socials */
+.socials {
+    background-color: rgb(63, 62, 62);
+    
+}
+
+.icons {
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.icons-inner {
+    text-align: center;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.icons-inner-top h4 {
+    color: white;
+}
+
+.icons-inner-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.icons-inner-bottom a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ---------------------------------------------------------
+Footer */
+
+footer {
+    background-color: black;
+}
+
+.footer {
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.footer p {
+    font-size: 10px;
+}
+
+/* ---------------------------------------------------------
+Mobile  */
+
+@media (max-width: 425px) {
+
+    .menu {
+        display: none;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    .card {
+        width: 60%;
+        margin: 20px 0px;
+    }
+    
+    .cards-flex {
+        flex-direction: column;
+    }
+
+    .portfolio {
+        flex-basis: 100%;
+    }
+    
+    .x {
+        display: none;
+    }
+
+    .icons {
+        width: 50%;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
+    
+   .portfolio {
+    margin: 10px;
+   }
+}
+
+
+
+
+
+
