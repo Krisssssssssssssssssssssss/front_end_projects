@@ -1,3 +1,44 @@
 body {
     margin: 0px;
 }
+
+.bg-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sign-list ul {
+    list-style: none;
+}
+
+.sign-list {
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+.input-bg, .btn1 {
+    background-color: rgb(78, 42, 206);
+}
+
+.fa-square-check {
+    font-size: 19px;
+}
+
+.btn1, .btn2 {
+    border: 2px solid white;
+}
+
+.circle-img {
+    overflow: hidden;
+    max-height: 350px;
+}
+
+.mini-font {
+    font-size: 13px;
+}
