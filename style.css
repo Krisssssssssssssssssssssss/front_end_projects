@@ -1,0 +1,59 @@
+body {
+    margin: 0px;
+}
+
+.carousel-home-made-hight img{
+    max-height: calc(600px);
+    overflow: hidden;
+    object-fit: cover;
+    
+}
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto !important;
+}
+
+.lights {
+    background-image: url(./Images/lights.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .laptop-img {
+    background-image: url(./Images/laptop.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+
+
+.video {
+    /* background-image: url(./Images/media.jpg); */
+    font-size: 20px;
+}
+.container-bgd  {
+    max-height: 200px;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.black-background {
+    background-color: black;
+}
+
+/* .contain-picture {
+    overflow: hidden;
+    object-fit: cover;
+    max-width: 100%;
+    height:auto;
+} Could be added to the laptop image */
