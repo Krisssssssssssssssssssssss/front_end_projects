@@ -6,6 +6,13 @@ body {
     box-sizing: border-box;
 }
 
+.navbar-logo {
+    height: 50px;
+}
+
+
+
+
 .card {
     width: 30%;
     border: 1px solid gray;
