@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.navbar-logo {
+    height: 50px;
+}
+
+
+
+
+.card {
+    width: 30%;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 10px;
+}
+.coding {
+    background-color: lightseagreen;
+}
+.design {
+    background-color: lightpink;
+}
+.marketing {
+    background-color: lightskyblue;
+}
