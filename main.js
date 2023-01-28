@@ -1,7 +1,7 @@
         document.querySelector("#filter-coding").addEventListener("click", filterCoding);
          document.querySelector("#filter-design").addEventListener("click", filterDesign);
          document.querySelector("#filter-marketing").addEventListener("click", filterMarketing);
-         
+        // document.querySelector("#filter-all").addEventListener("click", showAllCards);
          function filterCoding() {
              hideAllCards();
 
@@ -44,3 +44,4 @@
                  card.style.display = "inline-block";
              });
          }
+

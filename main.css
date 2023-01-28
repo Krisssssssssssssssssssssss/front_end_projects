@@ -47,6 +47,9 @@ a:hover {
     .bg-image{
         height: 250px;
     }
+    body {
+        overflow-x: hidden;
+    }
   }
   
 /* FILTERS */
@@ -61,6 +64,9 @@ a:hover {
         border-bottom: 1px solid #6c757d;
         border-right: 0px;
         text-align: center;
+    }
+    body {
+        overflow-x: hidden;
     }
 }
 
