@@ -47,9 +47,7 @@ a:hover {
     .bg-image{
         height: 250px;
     }
-    body {
-        overflow-x: hidden;
-    }
+    
   }
   
 /* FILTERS */
@@ -120,3 +118,31 @@ a:hover {
     color: white;
     padding: 2%;
 }
+
+
+
+/* LOAD MORE */
+
+@media (min-width: 992px) {
+    #show-more-button {
+        display: none;
+    }
+    .card2, .card {
+        display: inline-block;
+    }
+}
+
+
+@media (max-width: 991px) {
+    #show-more-button {
+        display: block;
+    }
+    .card2 {
+        display: none;
+    }
+
+    .card2:nth-child(-n+6) {
+        display: block;
+    }
+}
+

@@ -45,3 +45,28 @@
              });
          }
 
+
+
+
+         let cards = document.querySelectorAll('.card2');
+for (let i = 6; i < cards.length; i++) {
+    cards[i].style.display = 'none';
+}
+
+let button = document.querySelector('#show-more-button');
+button.addEventListener('click', function() {
+    for (let i = 2; i < cards.length; i++) {
+        cards[i].style.display = 'block';
+    }
+    button.style.display = 'none';
+});
+
+
+const btns = document.querySelectorAll(".filtering-btn");
+
+
+btns.forEach(btn => {
+  btn.addEventListener("click", function() {
+    button.style.display = "none";
+  });
+});
