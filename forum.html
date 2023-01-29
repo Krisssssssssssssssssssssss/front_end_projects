@@ -85,10 +85,10 @@
                     >Академија за data-science</a
                   >
                 </li>
-                <li class="nav-item mr-3">
+                <li class="nav-item ml-2 mr-3 ml-lg-5">
                   <a href="forum.html"
                     ><button
-                      class="btn btn-outline-success my-2 text-white bg-danger border-danger ml-lg-5"
+                      class="btn btn-outline-success text-white bg-danger border-danger"
                       type="submit"
                     >
                       Вработи наш студент
@@ -113,58 +113,115 @@
           </div>
         </div>
         <div class="container my-5">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <form class="row margin-bottom" method = "get" action = "#">
-                            <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
-                               <div class="form-group" >
-                                  <label for="firstname" class = "pl-1 mb-1 font-weight-bold">Име и презиме</label>
-                                  <input type="text" class="form-control font-italic" id = "firstname" placeholder="Вашето име и презиме" required >
-                               </div> 
-                            </div>
-                            <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
-                                <div class="form-group">
-                                   <label for="company" class = "pl-1 mb-1 font-weight-bold">Име на компанија</label>
-                                   <input type="text" class="form-control font-italic" id = "company" placeholder="Име на вашата компанија" required>
-                                </div> 
-                             </div>
-                             <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
-                                <div class="form-group">
-                                   <label for="email" class = "pl-1 mb-1 font-weight-bold">Контакт имејл</label>
-                                   <input type="email" class="form-control font-italic" id = "email" placeholder="Контакт имејл на вашата компанија" required>
-                                </div> 
-                             </div>
-                             <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
-                                <div class="form-group" >
-                                   <label for = "phone" class = "pl-1 mb-1 font-weight-bold">Контакт телефон</label>
-                                   <input type="tel" class="form-control font-italic" id = "phone" name="phone"  placeholder="Контакт телефон на вашата компанија" required>
-                                </div> 
-                             </div>
-                             <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
-                                <div class="form-group dropdown">
-                                    <label for="studenttype" class = "pl-1 mb-1 font-weight-bold">Тип на студенти</label>
-                                    <select  class="form-control select-style font-weight-bold dropbtn" name = "student" id = "studenttype" value="option" placeholder = "Изберете тип на студент" required>
-                                        <option value=""><span class = "placeholder font-italic">Изберете тип на студент</span></option>
-                                        <option value="Студент од маркетинг">Студент од маркетинг</option>
-                                        <option value="Студент од програмирање">Студент од програмирање</option>
-                                        <option value="Студент од data science">Студент од data science</option>
-                                        <option value="Студент од дизајн">Студент од дизајн</option>
-                                    </select>
-                                </div> 
-                             </div>
-                            <div class="col-12 col-md-6 mb-2 mt-md-1 margin-top mb-sm-4 px-4 px-md-2">
-                                <div class="form-group mt-4">
-                                    <button type="submit" id="submit" class=" form-control btn btn-block text-white button-forum-page ">Испрати</button>
-                                </div>
-                            </div>
-                     </form>   
-               </div>
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
+              <form class="row margin-bottom" method="get" action="#">
+                <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
+                  <div class="form-group">
+                    <label for="firstname" class="pl-1 mb-1 font-weight-bold"
+                      >Име и презиме</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control font-italic"
+                      id="firstname"
+                      placeholder="Вашето име и презиме"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
+                  <div class="form-group">
+                    <label for="company" class="pl-1 mb-1 font-weight-bold"
+                      >Име на компанија</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control font-italic"
+                      id="company"
+                      placeholder="Име на вашата компанија"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
+                  <div class="form-group">
+                    <label for="email" class="pl-1 mb-1 font-weight-bold"
+                      >Контакт имејл</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control font-italic"
+                      id="email"
+                      placeholder="Контакт имејл на вашата компанија"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
+                  <div class="form-group">
+                    <label for="phone" class="pl-1 mb-1 font-weight-bold"
+                      >Контакт телефон</label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control font-italic"
+                      id="phone"
+                      name="phone"
+                      placeholder="Контакт телефон на вашата компанија"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 mb-2 px-4 px-md-2">
+                  <div class="form-group dropdown">
+                    <label for="studenttype" class="pl-1 mb-1 font-weight-bold"
+                      >Тип на студенти</label
+                    >
+                    <select
+                      class="form-control select-style font-weight-bold dropbtn"
+                      name="student"
+                      id="studenttype"
+                      value="option"
+                      placeholder="Изберете тип на студент"
+                    >
+                      <option value="">
+                        <span class="placeholder font-italic"
+                          >Изберете тип на студент</span
+                        >
+                      </option>
+                      <option value="Студент од маркетинг">
+                        Студент од маркетинг
+                      </option>
+                      <option value="Студент од програмирање">
+                        Студент од програмирање
+                      </option>
+                      <option value="Студент од data science">
+                        Студент од data science
+                      </option>
+                      <option value="Студент од дизајн">
+                        Студент од дизајн
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="col-12 col-md-6 mb-2 mt-md-1 huge-margin-top mb-sm-4 px-4 px-md-2"
+                >
+                  <div class="form-group mt-4 huge-margin-top">
+                    <button
+                      type="submit"
+                      id="submit"
+                      class="form-control btn btn-block text-white button-forum-page"
+                    >
+                      Испрати
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
         <!-- ===== -->
       </div>
       <!-- FOOTER -->
-      <div class="row bg-dark p-4">
+      <div class="row bg-dark p-4 huge-margin-top-footer">
         <div class="col-md-12 text-center text-white">
           Изработено со &#10084; од студентите на Brainster
         </div>
