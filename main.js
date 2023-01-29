@@ -47,19 +47,32 @@
 
 
 
-
          let cards = document.querySelectorAll('.card2');
-for (let i = 6; i < cards.length; i++) {
-    cards[i].style.display = 'none';
-}
+         let displayCount = 6;
+         let totalCards = cards.length;
+         
+         for (let i = displayCount; i < totalCards; i++) {
+             cards[i].style.display = 'none';
+         }
+         
+         let button = document.querySelector('#show-more-button');
+         button.addEventListener('click', function() {
+             let hiddenCards = Array.from(cards).filter(function(card) {
+                 return card.style.display === 'none';
+             });
+         
+             let cardsToShow = hiddenCards.slice(0, displayCount);
+         
+             for (let i = 0; i < cardsToShow.length; i++) {
+                 cardsToShow[i].style.display = 'block';
+             }
+         
+             if (hiddenCards.length <= displayCount) {
+                 button.style.display = 'none';
+             }
+         });
+         
 
-let button = document.querySelector('#show-more-button');
-button.addEventListener('click', function() {
-    for (let i = 2; i < cards.length; i++) {
-        cards[i].style.display = 'block';
-    }
-    button.style.display = 'none';
-});
 
 
 const btns = document.querySelectorAll(".filtering-btn");
