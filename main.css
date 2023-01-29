@@ -1,10 +1,21 @@
 body {
     margin: 0px;
+    overflow-x: hidden;
 }
 
 * {
     box-sizing: border-box;
 }
+
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover {
+    text-decoration: none;
+}
+
 
 
 /* NAVBAR */
@@ -16,12 +27,16 @@ body {
 .brainster {
     font-size: 13px;
 }
+
+
+
 /* BANNER */
 .bg-image {
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 450px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,25 +47,30 @@ body {
     .bg-image{
         height: 250px;
     }
+    
   }
   
 /* FILTERS */
 
 .cards-menu:not(:last-child) {
-    border-bottom: 0;
+    border-bottom: 0px !important;
     border-right: 1px solid #6c757d;
 }
 
 @media (min-width: 768px) {
     .cards-menu:not(:last-child) {
         border-bottom: 1px solid #6c757d;
-        border-right: 0;
+        border-right: 0px;
         text-align: center;
+    }
+    body {
+        overflow-x: hidden;
     }
 }
 
 .filtering-btn i {
     visibility: hidden;
+    border: 0px;
   }
   
   .filters button:focus i {
@@ -59,6 +79,7 @@ body {
   .filters button:focus {
     background-color: #eb3b3b;
     color: #302f38;
+    border: 0px;
   }
   
   .filters button:hover {
@@ -68,18 +89,59 @@ body {
 
   
 /* CARDS */
+.projectsh1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+
 .card {
-    width: 30%;
-    border: 1px solid gray;
+    border: 0px;
+    /* border-radius: 1%; */
+    box-shadow: 0px 0px 25px -1px rgb(0 0 0 / 44%);
+    opacity: 0.95;
+}
+
+.card:hover {
+    opacity: 1;
+    border: 1px solid rgb(185, 140, 26);
+    box-shadow: 0px 0px 75px -1px rgba(0, 0, 0, 0.44);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.03);
+  }
+  
+.akademija-label {
     display: inline-block;
-    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    padding: 2%;
 }
-.coding {
-    background-color: lightseagreen;
+
+
+
+/* LOAD MORE */
+
+@media (min-width: 992px) {
+    #show-more-button {
+        display: none;
+    }
+    .card2, .card {
+        display: inline-block;
+    }
 }
-.design {
-    background-color: lightpink;
-}
-.marketing {
-    background-color: lightskyblue;
+
+
+@media (max-width: 991px) {
+    #show-more-button {
+        display: block;
+    }
+    .card2 {
+        display: none;
+    }
+
+    .card2:nth-child(-n+6) {
+        display: block;
+    }
 }
