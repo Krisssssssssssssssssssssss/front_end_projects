@@ -1,0 +1,74 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use 'sass:math';
+
+.navbar {
+    @extend %section;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var.$gutter-base * 12;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var.$font-family-base;
+    @media (max-width: 768px) {
+        display: none;
+      }
+
+    .inner {
+        @include mix.auto-wrap(80%);
+        img {
+        margin-bottom: var.$gutter-base * 3;
+        @include mix.auto-wrap(80%);
+        }
+        ul {
+            list-style: none;
+            font-size: large;
+            margin-bottom: var.$gutter-base * 5;
+            li {
+                margin-bottom: var.$gutter-base;
+            }
+            
+           a {
+            text-decoration: none;
+            color: var.$text-color-primary;
+           }
+        }
+        p {
+            @include mix.auto-wrap(80%);
+            a {
+                text-decoration: none;
+                color: var.$text-color-base ;
+                font-weight: bold;
+            }
+        }
+    }
+  
+
+}
+
+.navbar-hamburger {
+    display: none;
+    padding: var.$gutter-base;
+    @media (max-width: 768px) {
+        display: block;
+        a {
+            text-decoration: none;
+            color: var.$text-color-primary;
+        }
+        .topnav {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: var.$text-color-primary;
+            #myLinks {
+                display: none;
+                list-style: none;
+              }
+        }
+      }
+}
