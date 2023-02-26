@@ -1,1 +1,1 @@
-Hey you! Welcome to my test and trial projects :)
+This project was finished as I was practicing SASS
