@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+body {
+    position: relative;
+    
+}
+.upper-part {
+    height: 50vh;
+    h1 {
+         @include mix.wrap(50);
+         @extend %section;
+        text-transform: uppercase;
+        text-align: center;
+        
+        margin: 0;
+    }
+    p {
+        
+             @include mix.wrap(50);
+             @extend %section;
+            text-transform: uppercase;
+            text-align: center;
+            
+            margin: 0;
+        
+    }
+
+}
+
+.lower-part {
+    background-color: var.$color-secondary;
+    height: 50vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

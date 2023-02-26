@@ -1,0 +1,12 @@
+@use "sass:math";
+@function rem-calc($size) {
+    @return (math.div($size, 16)) * 1rem;
+}
+
+
+$color-primary:white;
+$color-secondary: rgba($color: #4e4e4e, $alpha: 0.2);
+$color-tertiary: darken(rgba($color: #2c2c2c, $alpha: 0.5), 10%);
+
+$gutter-base: rem-calc(30);
+
