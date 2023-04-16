@@ -1,1 +1,1 @@
-Hey you! Welcome to my test and trial projects :)
+In order to accomplish this Challenge, which requires creating a Repository, in which I will be adding all my previous and future Challenges; I created the repo and created a different branch for each and every project that I have done previously. Afterwards I added, committed, and pushed each and every project to its branch.
