@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+
+#artistHome {
+    .chart {
+        padding: 20px 18px;
+        p {
+            color: var.$default-primary;
+        }
+.buttons-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+        font-size: 12px;
+        padding: 6.5px 32px;
+        text-align: center;
+        color: var.$light-background;
+        background-color: var.$default-primary;
+        &:hover {
+            background-color: var.$contrast-primary;
+        }
+        &:focus {
+            background-color: var.$contrast-primary;
+        }
+        // &:active {
+        //     background-color: var.$contrast-primary;
+        // }
+    }
+}
+.main-chart-div {
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+    }
+}

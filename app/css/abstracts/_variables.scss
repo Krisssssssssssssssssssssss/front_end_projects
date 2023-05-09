@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+$roboto: 'Roboto', sans-serif;
+$reenie: 'Reenie Beanie', cursive; // .styled-text 
+
+
+$light-background: #FCEBD5;
+$normal-background: #EDD5BB;
+$dark-background: #E09686;
+$gray-background: #E5E5E5;
+
+
+$default-primary: #A26A5E;
+$contrast-primary: #D54C2E;
+$blue-primary: #1B59AC;
+$green-primary: #1BAC6F;
+
+
+$default-text: #5A5A5A;
+$muted-text:   #B9B9B9;
+$white-text:   #F8F8F8;
+
+// $gutter-base: 30px;
+ @function rem-calc($size) {
+     @return (math.div($size, 16)) * 1rem;
+ }
+
+ $gutter-base: rem-calc(30);     //30px
+

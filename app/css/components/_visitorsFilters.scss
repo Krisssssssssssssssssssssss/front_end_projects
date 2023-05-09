@@ -1,0 +1,77 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+#visitorFilters {
+    .main-part {
+        height: calc(100vh - 69px);
+        background-color: var.$default-primary;
+        color: var.$normal-background;
+        padding: 22px 17px;
+        input {
+            background-color: var.$default-primary;
+            color: var.$normal-background;
+            border-radius: 5px;
+            border: 2px solid var.$normal-background;
+            outline: none;
+            width: 97px;
+            height: 27px;
+        }
+        select {
+            background-color: var.$default-primary;
+            color: var.$normal-background;
+            border-color: var.$normal-background;
+        }
+        p {
+            font-size: 18px;
+        }
+        hr, h1 {
+            margin: 0;
+            color: var.$light-background;
+            border-color: var.$light-background;
+        }
+        .filter-row-one  {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            a {
+                font-size: 39px;
+                text-decoration: none;
+                color: var.$light-background;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .filter-row-two {
+            margin: 25px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .filter-row-three {
+            margin: 25px 0px;
+
+        }
+        .filter-row-four {
+            margin: 25px 0px;
+            p {
+                font-size: 18px;
+            }
+            .price-div {
+                display: flex;
+                justify-content: space-between;
+                .min-price, .max-price {
+                    flex-basis: 50%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+            }
+        }
+        .filter-row-five {
+            margin: 25px 0px;
+        }
+    }
+}

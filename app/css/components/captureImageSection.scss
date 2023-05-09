@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+#artistCaptureImage {
+    height: 100vh;
+    background-color: var.$default-primary;
+   .main-section-capture {
+padding: 51px 18px 0px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
+       #liveStream {
+        width: 100%;
+        height: 657px;
+       }
+       .captureImage {
+            background-color: var.$default-primary;
+            color: var.$normal-background;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+   }
+   }

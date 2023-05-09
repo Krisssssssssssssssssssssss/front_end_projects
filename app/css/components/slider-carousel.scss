@@ -1,0 +1,109 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+.slider-carousel {
+    max-width: 100rem;
+    height: 244px;
+    margin: 0 auto;
+    position: relative;
+  
+    overflow: hidden;
+ 
+  
+  .slide-carousel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 244px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+    transition: transform 1s;
+    hr {
+    color: var.$default-primary;
+    width: 176px;
+    transform: rotate(90deg);
+    }
+    .card-carousel {
+    flex-basis: 49%;
+    padding-left: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 46px;
+        height: 46px;
+        margin-bottom: -20px;
+        z-index: 2;
+        border: 1px solid var.$default-primary;
+    }
+    .card-text-body {
+        background-color: var.$dark-background;
+        width: 105px;
+        height: 111px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        p {
+            margin-top: 20%;
+            margin-bottom: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            text-align: center;
+            color: var.$white-text;
+        }
+    }
+    }
+    .right-carousel {
+        flex-basis: 49%;
+        padding-right: 69px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .inner-right-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 106px;
+            height: 174px;
+            p {
+                text-align: center;
+                color: var.$default-primary;
+                font-size: 9px;
+            }
+        }
+    }
+  }
+  .slider__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    color: var.$default-primary;
+    background-color: var.$light-background;
+    border: none;
+    cursor: pointer;
+    img {
+        height: 52px;
+        width: 13px;
+    }
+  }
+  
+  .slider__btn--left {
+    left: 3%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .slider__btn--right {
+    right: 3%;
+    transform: translate(50%, -50%);
+  }
+}
+  
+

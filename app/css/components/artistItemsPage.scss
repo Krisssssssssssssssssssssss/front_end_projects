@@ -1,0 +1,106 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+
+#artists-items {
+    background-color: var.$normal-background;
+    #addNewButtonOuter {
+        height: 120px;
+        margin: 26px 0px;
+        #addNewButtonInner {
+            background-color: var.$light-background;
+            margin: 11px 17px;
+            height: 98px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+            border: 2px dashed #A26A5E;
+            p {
+                text-align: center;
+                color: var.$default-primary;
+                font-size: 18px;
+                
+            }            
+        }
+    }
+    
+    .card {
+       border: 0;
+       background-color: var.$light-background;
+       margin: 20px 0;
+       color: var.$default-primary;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        p {
+            font-size: 11px
+        }
+        h3 {
+            font-size: 14px;
+        }
+        .card-first-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 19.84px;
+            h3 {
+                font-family: var.$reenie;
+                display: inline-block;
+                font-size: 30px;
+            }
+         .frame10 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 20px;
+            font-size: 12px;
+            button {
+                background-color: var.$default-primary;
+                color: var.$light-background;
+                display: inline-block;
+                margin-left: 30%;
+                text-decoration: none;
+                padding: 3px 8px;
+                margin-right: 18px;
+   
+            }
+         }
+        }
+
+        .action-buttons {
+         background-color: var.$default-primary;
+         padding: 10px 11.18px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 48px;
+         overflow: hidden;
+            button {
+                padding: 6.5px 17.5px;
+                margin-right: 0;
+                font-size: 12px;
+                text-align: center;
+                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+                border-radius: 2px;
+            }   
+            #sendCardToAuction {
+                background-color: var.$blue-primary;
+                color: var.$white-text;
+            }
+            #publishCard {
+                background-color: var.$green-primary;
+                color: var.$white-text;
+            } 
+            #removeCard {
+                background-color: var.$contrast-primary;
+                color: var.$light-background;
+            } 
+            #editCard {
+                background-color: var.$light-background;
+                color: var.$default-primary;
+            } 
+        }
+    }
+}

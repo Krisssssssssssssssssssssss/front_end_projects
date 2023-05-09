@@ -1,0 +1,32 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+// #artistHome {
+    .dropdown-wrapper {
+        width: 100%;
+        height: 191px;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        background-color: var.$default-primary;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        .dropdown-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 21px;
+
+            a {
+                text-decoration: none;
+                font-size: 32px;
+                color: var.$light-background;
+            }
+        }
+    }
+     .toggle-show-dropdown {
+         display: none;
+     }
+// }

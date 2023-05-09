@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+.login-buttons {
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 399px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    // @extend %section;
+    & :hover {
+        transform: scaleY(1.10)
+      }
+    .top-part {
+        background-color: var.$normal-background;
+        position: absolute;
+        cursor: pointer;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 40%);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+        color: var.$default-primary;
+        .join-as-artist {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 0;
+            margin-top: var.$gutter-base;
+            margin-bottom: var.$gutter-base;
+        }
+        .select-div {
+    display: flex;
+    justify-content: end;
+    padding-right: 5%;
+    .form-select-sm  {
+        background-color: var.$normal-background;
+        border-color: var.$default-primary;
+        border-radius: 2px;
+        color: var.$default-primary;
+        font-size: 13px;
+    }
+        }
+    }
+    .bottom-part {
+        position: absolute;
+        cursor: pointer;
+        clip-path: polygon(0 40%, 100% 70%, 100% 100%, 0% 100%);
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var.$default-primary;
+        display: flex;
+        align-items: end;  
+        .join-as-visitor {
+            text-align: center;
+            font-size: 45px;
+            color: var.$normal-background;
+            margin-bottom: 0;
+            width: 100%;
+            margin-bottom: var.$gutter-base;
+        } 
+    }
+}

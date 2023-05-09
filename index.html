@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street ARTists</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9d18197c84.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- BOOTSTRAP CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- LOCAL MAIN CSS -->
+    <link rel="stylesheet" href="./app/css/main.css" />
+  </head>
+
+  <body>
+
+
+    <div class="dropdown-wrapper toggle-show-dropdown">
+      <div class="dropdown-inner">
+        <a class="add-new-page-reset" href="#">Home</a>
+        <a class="add-new-page-reset" href="#artists-items">Items</a>
+        <a class="add-new-page-reset" href="#auction">Auction</a>
+      </div>
+    </div>
+
+
+
+    <section id="landingPage" class="page">
+      <nav>
+        <div class="nav-landing">
+          <a href="#">
+            <h1>Street ARTists</h1>
+          </a>
+        </div>
+      </nav>
+      <div class="logo">
+        <img src="./app/css/img/logo.png" alt="logo" />
+      </div>
+      <div class="login-buttons">
+        <div class="top-part">
+          <p class="styled-text join-as-artist">Join as Artist</p>
+          <div class="select-div">
+            <select
+              class="form-select form-select-sm"
+              aria-label=".form-select-sm example"
+              id="artists"
+            >
+              <option selected>Choose</option>
+            </select>
+          </div>
+        </div>
+        <div class="bottom-part">
+          <p class="styled-text join-as-visitor">Join as Visitor</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="artistHome" class="page">
+      <nav>
+        <div class="nav-artists">
+          <div class="left-side">
+            <a href="#" class="logo">
+
+              <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+            </a>
+            <a href="#">
+              <h1 class="artistNameHeader"></h1>
+            </a>
+          </div>
+          <div class="right-side">
+            <img src="./app/css/img/Vector.svg" alt="dropdown-menu" class="dropdown-button">
+          </div>
+        </div>
+      </nav>
+      <!-- <div class="dropdown-wrapper toggle-show-dropdown">
+        <div class="dropdown-inner">
+          <a href="#">Home</a>
+          <a href="#artists-items">Items</a>
+          <a href="#auction">Auction</a>
+        </div>
+      </div> -->
+      <div class="artist-home-top-grid">
+        <div class="row-one">
+          <div class="row-one-inner left-inner-row-one">
+            <p class="small">
+              Total Items Sold
+            </p>
+            <p class="big" id="totalItemsSold"></p>
+          </div>
+          <div class="row-one-inner">
+            <p class="small">
+              Total Income
+            </p>
+            <p class="big">$<span id="totalIncome"></span></p>
+          </div>
+        </div>
+        <a href="#auction">
+            <div class="row-two">
+            <p class="small">live Auctioning Item</p>
+            <p class="big" id="bigAuctioning">$<span id="liveAuctioningItem"></span></p>
+            <p class="small">current bid</p>
+          </div>
+          </a>
+      </div>
+      <div class="chart">
+        <p>Display my income for last</p>
+<div class="buttons-div">
+        <button id="last7">7 days</button>
+        <button id="last14">14 days</button>
+        <button id="last30">30 days</button>
+</div>
+        <div class="main-chart-div">
+            <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="artists-items" class="page">
+      <nav>
+        <div class="nav-artists">
+          <div class="left-side">
+            <a href="#" class="logo">
+
+              <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+            </a>
+            <a href="#">
+              <h1 class="artistNameHeaderItems"></h1>
+            </a>
+          </div>
+          <div class="right-side">
+            <img src="./app/css/img/Vector.svg" alt="dropdown-menu" class="dropdown-button">
+          </div>
+        </div>
+      </nav>
+        <div id="addNewButtonOuter">
+          <div id="addNewButtonInner">
+            <p>+ Add new item</p>
+          </div>
+        </div>
+        <div id="artistItemsPageMainSection"></div>
+    </section>
+
+    <section id="artistAddNewItem" class="page">
+      <nav>
+        <div class="nav-artists">
+          <div class="left-side">
+            <a href="#" class="logo add-new-page-reset">
+
+              <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+            </a>
+            <a href="#"  class="add-new-page-reset">
+              <h1 class="artistNameHeaderNewItem"></h1>
+            </a>
+          </div>
+          <div class="right-side">
+            <img src="./app/css/img/Vector.svg" alt="dropdown-menu" class="dropdown-button">
+          </div>
+        </div>
+      </nav>
+<form id="myForm">
+  <div class="first-row-form">
+    <h1>Add new Item</h1>
+    <p>Is published <span><img src="./app/css/img/Vector 5checkmark.png" alt="checkmark"></span></p>
+  </div>
+  <div class="form-group">
+    <label for="addTitle">Title</label>
+    <input type="text" id="addTitle">
+  </div>
+  <div class="form-group">
+    <label for="addNewItemDescription">Description</label>
+    <textarea name="Description" id="addNewItemDescription" cols="30" rows="5"></textarea>
+  </div>
+  <div class="first-row-form">
+    <div class="form-group">
+      <label for="addType">Type</label>
+      <input type="text" class="smallInput" id="addType">
+    </div>
+    <div class="form-group">
+      <label for="addPrice">Price</label>
+      <input type="text" class="smallInput" id="addPrice">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input type="text" id="imageUrl">
+  </div>
+  <p>or</p>
+  <canvas class="take-a-snapshot-div" id="myPictureCanvas">
+  </canvas>
+  <button class="take-a-snapshot-div" id="take-a-snapshot-div">
+    <img src="./app/css/img/Vectorcamera.png" alt="camera">
+    <p>take a snapshot</p>
+  </button>
+  <div class="add-new-items-buttons-grid">
+    <button class="add-new-item-btn">Add New Item</button>
+    <button class="cancel-button">Cancel</button>
+  </div>
+
+</form>
+    </section>
+
+    <section id="artistCaptureImage" class="page">
+      <nav>
+        <div class="nav-artists">
+          <div class="left-side">
+            <a href="#" class="logo">
+
+              <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+            </a>
+            <a href="#">
+              <h1 class="artistNameHeaderCapture"></h1>
+            </a>
+          </div>
+          <div class="right-side">
+            <img src="./app/css/img/Vector.svg" alt="dropdown-menu" class="dropdown-button">
+          </div>
+        </div>
+      </nav>
+      <div class="main-section-capture">
+        <video id="liveStream" autoplay></video>
+        <div id="captureImage"><img src="./app/css/img/Vectorcamera.png" alt="camera"></div>
+      </div>
+    </section>
+
+    <section id="visitorHomePage" class="page">
+      <nav>
+        <div class="nav-landing">
+          <div class="left-section">
+            <a href="#">
+              <div class="logo">
+                <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+              </div>
+              <p>Street ARTists</p>
+            </a>
+          </div>
+          <div class="right-section">
+            <a href="#auction">
+              <img src="./app/css/img/ant-design_home-filled.svg" alt="auction" />
+            </a>
+          </div>
+        </div>
+      </nav>
+     
+      <div class="brick-wall">
+        <div class="row-even">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-odd">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-even">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-odd">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-even">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-odd">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-even">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="row-odd">
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+          <div class="brick"></div>
+        </div>
+        <div class="brick-wall-text">
+          <h1>Looking for a masterpiece?</h1>
+          <button id="visitorFindOutMoreBtn">Find one now!</button>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="top">
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1516943294273-ea1986b95f25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29sb3VyZnVsJTIwYXJ0JTIwcGFpbnRpbmd8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1514679347725-10436adc23a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29sb3VyZnVsJTIwYXJ0JTIwcGFpbnRpbmd8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1499892298463-01d7f9832da5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1646317136848-4e527abe6e6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1628716779718-b68b4b1968fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1584445183953-fcfb94d6e48d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1601915632187-6f9c9c27dcc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1655721522145-8eb4e4539b74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1671624750102-b90f39384e32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img
+            class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1543198926-22fea2a870dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNvbG91cmZ1bCUyMGFydCUyMHBhaW50aW5nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+        </div>
+        <div class="bottom">
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1682259535231-54440045e4f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1680798790227-57f763866b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfGhtZW52UWhVbXhNfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1680178441861-c9539e92434f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fGhtZW52UWhVbXhNfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1679443658362-4c3acf3b1e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDQyfGhtZW52UWhVbXhNfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1674632350949-3382a7b8302d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDk0fGhtZW52UWhVbXhNfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1644487120030-12621cf3c254?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI0MXxobWVudlFoVW14TXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1664476708605-d17bfb479fda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI2MHxobWVudlFoVW14TXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1643962645263-895bc4d2d0f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMxOXxobWVudlFoVW14TXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1659644221874-5193c3480f9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM0OHxobWVudlFoVW14TXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+          <img class="visitorsHomePageScrollImages"
+            src="https://images.unsplash.com/photo-1639739953083-28eb92928857?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM2NXxobWVudlFoVW14TXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+          />
+        </div>
+      </div>
+      <div class="slider-carousel">
+        <div class="slide-carousel">
+          <div class="card-carousel">
+            <img
+              class="rounded-circle"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmUlMjBmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="profile-photo"
+            />
+            <div class="card-text-body">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisic. Lorem ipsum dolor sit amet. 
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="right-carousel">
+            <div class="inner-right-carousel">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+                cumque?
+              </p>
+             </div>
+           </div>
+        </div>
+
+        <div class="slide-carousel">
+          <div class="card-carousel">
+            <img
+              class="rounded-circle"
+              src="https://images.unsplash.com/photo-1620000617482-821324eb9a14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2ZpbGUlMjBwaWN0dXJlJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              alt="profile-photo"
+            />
+            <div class="card-text-body">
+              <div class="right-carousel">
+                <div class="inner-right-carousel">
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+                    cumque?
+                  </p>
+                 </div>
+               </div>
+            </div>
+          </div>
+          <hr />
+          <div class="right-carousel">
+ <div class="inner-right-carousel">
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+    cumque?
+  </p>
+ </div>
+           </div>
+        </div>
+
+        <div class="slide-carousel">
+          <div class="card-carousel">
+            <img
+              class="rounded-circle"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmUlMjBmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              alt="profile-photo"
+            />
+            <div class="card-text-body">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisic. Lorem ipsum dolor sit amet.
+              </p>
+            </div>
+          </div>
+
+          <hr />
+     <div class="right-carousel">
+      <div class="inner-right-carousel">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+          cumque?
+        </p>
+       </div>
+     </div>
+        </div>
+        <button class="slider__btn slider__btn--left"><img src="./app/css/img/Vector 1arrow-left.png" alt="arrow"></button>
+        <button class="slider__btn slider__btn--right"><img src="./app/css/img/Vector 2arrow-right.png" alt="arrow"></button>
+      </div>
+    </section>
+
+    <section id="visitorListingPage" class="page to-slide">
+      <nav>
+        <div class="nav-landing">
+          <div class="left-section">
+            <a href="#">
+              <div class="logo">
+                <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+              </div>
+              <p>Street ARTists</p>
+            </a>
+          </div>
+          <div class="right-section">
+            <a href="#auction">
+              <img src="./app/css/img/ant-design_home-filled.svg" alt="auction" />
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="listing-main-part"></div>
+      <div class="filters-button-container" id="filter-btn">
+        <img src="./app/css/img/filter-btn.png" alt="filter-btn" class="filter-btn-img">
+      </div>
+    </section>
+
+    <section id="visitorFilters" class="page to-slide">
+      <nav>
+        <div class="nav-landing">
+          <div class="left-section">
+            <a href="#">
+              <div class="logo">
+                <img src="./app/css/img/logo-edited-2.png" alt="logo" />
+              </div>
+              <p>Street ARTists</p>
+            </a>
+          </div>
+          <div class="right-section">
+            <a href="#auction">
+              <img src="./app/css/img/ant-design_home-filled.svg" alt="auction" />
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="main-part">
+    <div class="filter-row-one">
+    <h1>Filter by</h1>
+<a id="x-btn" href="#visitorListingPage"><i class="fa-solid fa-x"></i></a>
+    </div>
+    <div class="filter-row-two">
+      <label for="titleFilter">By Item Title</label>
+      <input id="filter-title" type="text">
+    </div>
+    <hr>
+    <div class="filter-row-three">
+      <label for="artists-Filter">
+        By Artist
+      </label for="">
+      <div class="select-div">
+        <select
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+          id="artists-Filter"
+        >
+          <option selected>Choose</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="filter-row-four">
+      <p>By price</p>
+      <div class="price-div">
+        <div class="min-price">
+          <label for="minPrice">Min:</label>
+          <input type="number" id="minPrice">
+        </div>
+        <div class="max-price">
+          <label for="maxPrice">Max:</label>
+          <input type="number" id="maxPrice">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="filter-row-five">
+      <label for="typeFilter">
+        By Type
+      </label>
+      <div class="select-div">
+        <select
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+          id="typeFilter"
+        >
+          <option selected>Choose</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+      </div>
+      <div class="filters-button-container" id="filter-btn-submit">
+        <img src="./app/css/img/checkmark-btn.png" alt="filter-btn" class="filter-btn-img">
+      </div>
+    </section>
+
+
+
+    <section id="auction" class="page">
+    </section>
+
+
+
+
+
+
+
+    <!-- JQUERY JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- POPPER JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="./app/main.js"></script>
+  </body>
+</html>

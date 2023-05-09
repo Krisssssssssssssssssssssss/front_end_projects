@@ -1,0 +1,71 @@
+// @forward "component-name"
+@forward "./navbar-and-logo.scss/";
+@forward "./login-buttons.scss";
+@forward "./visitors-header.scss";
+@forward "./slider.scss";
+@forward "./brick-wall";
+@forward "./slider.scss";
+@forward "./visitorsListingPage";
+@forward "./slider-carousel.scss";
+@forward "./visitorsFilters";
+@forward "./artistHeader.scss";
+@forward "./artistHomePage.scss";
+@forward "./earningsChartArtist.scss";
+@forward "./artistDropdownMenu.scss";
+@forward "./artistItemsPage.scss";
+@forward "./artistAddNewItem.scss";
+@forward './captureImageSection.scss';
+
+
+
+
+
+// // Mixin
+
+// @mixin section {
+//     padding-top: (var.$gutter-base * 2);
+//     padding-bottom: (var.$gutter-base * 2);
+// }
+
+// // Mixin Functions
+// @mixin wrap($value) {
+//     width: $value;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+// // Extend
+
+// %section {
+//     padding-top: (var.$gutter-base * 2);
+//     padding-bottom: (var.$gutter-base * 2);
+// }
+
+
+
+
+// Extend example:
+
+// .list-section {
+//     @extend %section;
+//     @extend %wrap;
+  
+//     .content {
+//       @extend %wrap;
+//       text-align: center;
+  
+//       h2 {
+//         text-transform: uppercase;
+//         margin-bottom: math.div(var.$gutter-base, 2);
+//       }
+//     }
+
+
+// math.div(var.$gutter-base, value) ako se deli ili
+// math.div(var.$gutter-base * value) koga se mnozi
+
+// mixin
+// @include mix.mixin name;
+
+// extend
+// @extend %extend name;

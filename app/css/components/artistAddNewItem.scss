@@ -1,0 +1,88 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+#artistAddNewItem {
+    background-color: var.$default-primary;
+    font-size: 18px;
+    color: var.$normal-background;
+form {
+    padding: 25px 18px 31px 18px;
+    #myPictureCanvas {
+        display: none;
+    }
+    p {
+        text-align: center;
+    }
+    input, textarea {
+        background-color: var.$default-primary;
+        mix-blend-mode: normal;
+        outline: none;
+        border: 1px solid #EDD5BB;
+        border-radius: 2px;
+        color: var.$normal-background;
+    }
+    .first-row-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 35px;
+        
+            color: var.$light-background;
+        }
+        span {
+            background-color: var.$normal-background;
+        }
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        .smallInput {
+            width: 175px;
+        }
+
+    }
+    .take-a-snapshot-div {
+        border: 2px dashed #FCEBD5;
+        border-radius: 2px;
+        background-color: var.$default-primary;
+        color: var.$normal-background;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 378px;
+        height: 309px;
+        &:hover {
+            cursor: pointer;
+        }
+        p {
+            margin-top: 15px;
+        }
+    }
+        .add-new-items-buttons-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 19px;
+            margin-bottom: 31px;
+            .add-new-item-btn {
+                background-color: var.$contrast-primary;
+                color: var.$light-background;
+                text-align: center;
+                padding: 8px 30.5px;
+        
+            }
+            .cancel-button {
+                background-color: var.$gray-background;
+                color: var.$default-text;
+                text-align: center;
+                padding: 8px 59.5px;
+            }
+        }
+}
+}

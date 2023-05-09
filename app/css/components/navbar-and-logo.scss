@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+
+
+#landingPage {
+    body {
+        height: 100vh;
+    }
+    nav {
+       height: 104px;
+        .nav-landing {
+            text-align: center;
+            font-family: var.$reenie;
+            height: 69px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+                a {
+                  display: inline-block;
+                  text-decoration: none;
+                  h1 {
+                    margin-bottom: 0;   
+                }
+                }
+        }
+    }
+    .logo {
+ display: flex;
+ justify-content: center;
+ @extend %section;
+    }
+    img {
+        flex-basis: 145px;
+        flex-basis: 145px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+.brick-wall {
+    background-color: #F5E3CB;
+    padding: 0px 10px;
+    display: relative;
+    overflow: hidden;
+    .row-even {
+        display: flex;
+        margin-right: 18.98px;
+    }
+    .brick {
+        flex-basis: 37.97px;
+        height: 15.6px;
+        background-color: rgba(255, 255, 255, 0.4);; 
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        margin: 3.18px 2.1px;
+    }
+    .row-odd {
+        display: flex;
+        margin-left: 18.98px;
+    }
+    .brick-wall-text {
+        position: absolute;
+        top: 109px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        h1 {
+            font-size: var.$gutter-base;
+            margin-right: 20px;
+        }
+        button {
+            width: 153px;
+            height: 37px;
+            gap: 10px;
+            background-color: var.$default-primary;
+            color: var.$light-background;
+            font-size: 12px;
+        }
+      }
+}

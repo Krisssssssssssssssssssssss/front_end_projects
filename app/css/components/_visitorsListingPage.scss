@@ -1,0 +1,68 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use 'sass:math';
+
+.visitor-card-dark {
+background-color: var.$default-primary;
+color: var.$light-background;
+    button {
+        background-color: var.$light-background;
+        color: var.$default-primary;
+                &:hover {
+                 background-color: var.$light-background;   
+                text-decoration: none;
+                color: var.$default-primary;
+                }
+    }
+}
+.visitor-card-light {
+    background-color: var.$light-background;
+    color: var.$default-primary;
+    button {
+        background-color: var.$default-primary;
+        color: var.$light-background;
+                &:hover {
+                background-color: var.$default-primary;  
+                text-decoration: none;
+                color: var.$light-background;
+                }
+    }
+}
+#visitorListingPage {
+    background-color: var.$normal-background;
+
+    .card {
+        @extend %section;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        p {
+            font-size: 11px
+        }
+        h6 {
+            font-size: 14px;
+        }
+        .card-first-row {
+            display: flex;
+            justify-content: space-between;
+            h3 {
+                font-family: var.$reenie;
+                display: inline-block;
+                font-size: 30px;
+            }
+         .frame10 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 20px;
+            font-size: 12px;
+            button {
+                display: inline-block;
+                margin-left: 30%;
+                text-decoration: none;
+                padding: 3px 8px;
+   
+            }
+         }
+        }
+    }
+}

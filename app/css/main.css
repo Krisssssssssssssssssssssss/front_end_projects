@@ -1,0 +1,892 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  background-color: #FCEBD5;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body .styled-text {
+  font-family: "Reenie Beanie", cursive;
+}
+
+h1 {
+  color: #A26A5E;
+}
+
+p {
+  font-size: 18px;
+}
+
+.page {
+  display: none;
+}
+
+.filters-button-container {
+  text-decoration: none;
+  position: fixed;
+  right: 18px;
+  bottom: 65px;
+  z-index: 3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.filters-button-container:hover {
+  cursor: pointer;
+}
+.filters-button-container .filter-btn-img {
+  height: 67px;
+  width: 64px;
+}
+
+.logo {
+  z-index: 3;
+}
+
+#visitorListingPage .card, #landingPage .logo {
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+}
+
+#landingPage body {
+  height: 100vh;
+}
+#landingPage nav {
+  height: 104px;
+}
+#landingPage nav .nav-landing {
+  text-align: center;
+  font-family: "Reenie Beanie", cursive;
+  height: 69px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+#landingPage nav .nav-landing a {
+  display: inline-block;
+  text-decoration: none;
+}
+#landingPage nav .nav-landing a h1 {
+  margin-bottom: 0;
+}
+#landingPage .logo {
+  display: flex;
+  justify-content: center;
+}
+#landingPage img {
+  flex-basis: 145px;
+  flex-basis: 145px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-buttons {
+  position: relative;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 399px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+.login-buttons :hover {
+  transform: scaleY(1.1);
+}
+.login-buttons .top-part {
+  background-color: #EDD5BB;
+  position: absolute;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 40%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  color: #A26A5E;
+}
+.login-buttons .top-part .join-as-artist {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 0;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+}
+.login-buttons .top-part .select-div {
+  display: flex;
+  justify-content: end;
+  padding-right: 5%;
+}
+.login-buttons .top-part .select-div .form-select-sm {
+  background-color: #EDD5BB;
+  border-color: #A26A5E;
+  border-radius: 2px;
+  color: #A26A5E;
+  font-size: 13px;
+}
+.login-buttons .bottom-part {
+  position: absolute;
+  cursor: pointer;
+  clip-path: polygon(0 40%, 100% 70%, 100% 100%, 0% 100%);
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #A26A5E;
+  display: flex;
+  align-items: end;
+}
+.login-buttons .bottom-part .join-as-visitor {
+  text-align: center;
+  font-size: 45px;
+  color: #EDD5BB;
+  margin-bottom: 0;
+  width: 100%;
+  margin-bottom: 1.875rem;
+}
+
+#visitorHomePage nav, #visitorListingPage nav, #visitorFilters nav {
+  background-color: #FCEBD5;
+}
+#visitorHomePage nav .nav-landing, #visitorListingPage nav .nav-landing, #visitorFilters nav .nav-landing {
+  font-family: "Reenie Beanie", cursive;
+  height: 69px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+#visitorHomePage nav .nav-landing .left-section, #visitorListingPage nav .nav-landing .left-section, #visitorFilters nav .nav-landing .left-section {
+  display: flex;
+  align-items: center;
+}
+#visitorHomePage nav .nav-landing .left-section a, #visitorListingPage nav .nav-landing .left-section a, #visitorFilters nav .nav-landing .left-section a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 2;
+}
+#visitorHomePage nav .nav-landing .left-section a img, #visitorListingPage nav .nav-landing .left-section a img, #visitorFilters nav .nav-landing .left-section a img {
+  margin-bottom: -20px;
+}
+#visitorHomePage nav .nav-landing .left-section a p, #visitorListingPage nav .nav-landing .left-section a p, #visitorFilters nav .nav-landing .left-section a p {
+  margin: 0;
+  color: #A26A5E;
+  font-size: 1.5625rem;
+}
+#visitorHomePage nav .nav-landing .right-section, #visitorListingPage nav .nav-landing .right-section, #visitorFilters nav .nav-landing .right-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  background-color: #EDD5BB;
+}
+
+.slider .top,
+.slider .bottom {
+  display: flex;
+  gap: 25px;
+  margin: 38px 0;
+}
+
+.slider .top:hover,
+.slider .bottom:hover {
+  animation-play-state: paused;
+}
+
+.slider .top {
+  margin: 38px 0;
+}
+.slider .bottom {
+  margin: 38px 0;
+}
+
+.slider .top {
+  animation: slide 35s infinite linear;
+}
+
+.slider .bottom {
+  animation: slide 35s infinite linear reverse;
+}
+
+.slider .top img,
+.slider .bottom img {
+  height: 153px;
+  transition: transform 0.15s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.slider .top img:hover,
+.slider .bottom img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.slide {
+  animation: slideToLeft 0.5s forwards;
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.brick-wall {
+  background-color: #F5E3CB;
+  padding: 0px 10px;
+  display: relative;
+  overflow: hidden;
+}
+.brick-wall .row-even {
+  display: flex;
+  margin-right: 18.98px;
+}
+.brick-wall .brick {
+  flex-basis: 37.97px;
+  height: 15.6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  margin: 3.18px 2.1px;
+}
+.brick-wall .row-odd {
+  display: flex;
+  margin-left: 18.98px;
+}
+.brick-wall .brick-wall-text {
+  position: absolute;
+  top: 109px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.brick-wall .brick-wall-text h1 {
+  font-size: 1.875rem;
+  margin-right: 20px;
+}
+.brick-wall .brick-wall-text button {
+  width: 153px;
+  height: 37px;
+  gap: 10px;
+  background-color: #A26A5E;
+  color: #FCEBD5;
+  font-size: 12px;
+}
+
+.visitor-card-dark {
+  background-color: #A26A5E;
+  color: #FCEBD5;
+}
+.visitor-card-dark button {
+  background-color: #FCEBD5;
+  color: #A26A5E;
+}
+.visitor-card-dark button:hover {
+  background-color: #FCEBD5;
+  text-decoration: none;
+  color: #A26A5E;
+}
+
+.visitor-card-light {
+  background-color: #FCEBD5;
+  color: #A26A5E;
+}
+.visitor-card-light button {
+  background-color: #A26A5E;
+  color: #FCEBD5;
+}
+.visitor-card-light button:hover {
+  background-color: #A26A5E;
+  text-decoration: none;
+  color: #FCEBD5;
+}
+
+#visitorListingPage {
+  background-color: #EDD5BB;
+}
+#visitorListingPage .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#visitorListingPage .card p {
+  font-size: 11px;
+}
+#visitorListingPage .card h6 {
+  font-size: 14px;
+}
+#visitorListingPage .card .card-first-row {
+  display: flex;
+  justify-content: space-between;
+}
+#visitorListingPage .card .card-first-row h3 {
+  font-family: "Reenie Beanie", cursive;
+  display: inline-block;
+  font-size: 30px;
+}
+#visitorListingPage .card .card-first-row .frame10 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 20px;
+  font-size: 12px;
+}
+#visitorListingPage .card .card-first-row .frame10 button {
+  display: inline-block;
+  margin-left: 30%;
+  text-decoration: none;
+  padding: 3px 8px;
+}
+
+.slider-carousel {
+  max-width: 100rem;
+  height: 244px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.slider-carousel .slide-carousel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 244px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: transform 1s;
+}
+.slider-carousel .slide-carousel hr {
+  color: #A26A5E;
+  width: 176px;
+  transform: rotate(90deg);
+}
+.slider-carousel .slide-carousel .card-carousel {
+  flex-basis: 49%;
+  padding-left: 63px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.slider-carousel .slide-carousel .card-carousel img {
+  width: 46px;
+  height: 46px;
+  margin-bottom: -20px;
+  z-index: 2;
+  border: 1px solid #A26A5E;
+}
+.slider-carousel .slide-carousel .card-carousel .card-text-body {
+  background-color: #E09686;
+  width: 105px;
+  height: 111px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.slider-carousel .slide-carousel .card-carousel .card-text-body p {
+  margin-top: 20%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  text-align: center;
+  color: #F8F8F8;
+}
+.slider-carousel .slide-carousel .right-carousel {
+  flex-basis: 49%;
+  padding-right: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-carousel .slide-carousel .right-carousel .inner-right-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 106px;
+  height: 174px;
+}
+.slider-carousel .slide-carousel .right-carousel .inner-right-carousel p {
+  text-align: center;
+  color: #A26A5E;
+  font-size: 9px;
+}
+.slider-carousel .slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  color: #A26A5E;
+  background-color: #FCEBD5;
+  border: none;
+  cursor: pointer;
+}
+.slider-carousel .slider__btn img {
+  height: 52px;
+  width: 13px;
+}
+.slider-carousel .slider__btn--left {
+  left: 3%;
+  transform: translate(-50%, -50%);
+}
+.slider-carousel .slider__btn--right {
+  right: 3%;
+  transform: translate(50%, -50%);
+}
+
+#visitorFilters .main-part {
+  height: calc(100vh - 69px);
+  background-color: #A26A5E;
+  color: #EDD5BB;
+  padding: 22px 17px;
+}
+#visitorFilters .main-part input {
+  background-color: #A26A5E;
+  color: #EDD5BB;
+  border-radius: 5px;
+  border: 2px solid #EDD5BB;
+  outline: none;
+  width: 97px;
+  height: 27px;
+}
+#visitorFilters .main-part select {
+  background-color: #A26A5E;
+  color: #EDD5BB;
+  border-color: #EDD5BB;
+}
+#visitorFilters .main-part p {
+  font-size: 18px;
+}
+#visitorFilters .main-part hr, #visitorFilters .main-part h1 {
+  margin: 0;
+  color: #FCEBD5;
+  border-color: #FCEBD5;
+}
+#visitorFilters .main-part .filter-row-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#visitorFilters .main-part .filter-row-one a {
+  font-size: 39px;
+  text-decoration: none;
+  color: #FCEBD5;
+}
+#visitorFilters .main-part .filter-row-one a:hover {
+  text-decoration: none;
+}
+#visitorFilters .main-part .filter-row-two {
+  margin: 25px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#visitorFilters .main-part .filter-row-three {
+  margin: 25px 0px;
+}
+#visitorFilters .main-part .filter-row-four {
+  margin: 25px 0px;
+}
+#visitorFilters .main-part .filter-row-four p {
+  font-size: 18px;
+}
+#visitorFilters .main-part .filter-row-four .price-div {
+  display: flex;
+  justify-content: space-between;
+}
+#visitorFilters .main-part .filter-row-four .price-div .min-price, #visitorFilters .main-part .filter-row-four .price-div .max-price {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#visitorFilters .main-part .filter-row-five {
+  margin: 25px 0px;
+}
+
+#artistHome nav, #artists-items nav, #artistAddNewItem nav, #artistCaptureImage nav {
+  background-color: #FCEBD5;
+}
+#artistHome nav .nav-artists, #artists-items nav .nav-artists, #artistAddNewItem nav .nav-artists, #artistCaptureImage nav .nav-artists {
+  height: 69px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-family: "Reenie Beanie", cursive;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+#artistHome nav .nav-artists .left-side, #artists-items nav .nav-artists .left-side, #artistAddNewItem nav .nav-artists .left-side, #artistCaptureImage nav .nav-artists .left-side {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#artistHome nav .nav-artists .left-side .logo, #artists-items nav .nav-artists .left-side .logo, #artistAddNewItem nav .nav-artists .left-side .logo, #artistCaptureImage nav .nav-artists .left-side .logo {
+  margin-bottom: -20px;
+}
+#artistHome nav .nav-artists .left-side a, #artists-items nav .nav-artists .left-side a, #artistAddNewItem nav .nav-artists .left-side a, #artistCaptureImage nav .nav-artists .left-side a {
+  display: inline-block;
+  text-decoration: none;
+}
+#artistHome nav .nav-artists .left-side a h1, #artists-items nav .nav-artists .left-side a h1, #artistAddNewItem nav .nav-artists .left-side a h1, #artistCaptureImage nav .nav-artists .left-side a h1 {
+  margin-bottom: 0;
+  font-size: 1.875rem;
+  line-height: 1.875rem;
+  display: inline-block;
+}
+#artistHome nav .nav-artists .right-side, #artists-items nav .nav-artists .right-side, #artistAddNewItem nav .nav-artists .right-side, #artistCaptureImage nav .nav-artists .right-side {
+  flex-basis: 5%;
+  margin: 20px;
+}
+
+.artist-home-top-grid {
+  background-color: #EDD5BB;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FCEBD5;
+}
+.artist-home-top-grid p {
+  margin: 0;
+}
+.artist-home-top-grid .small {
+  font-size: 18px;
+}
+.artist-home-top-grid .big {
+  font-size: 48px;
+}
+.artist-home-top-grid .row-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.artist-home-top-grid .row-one .row-one-inner {
+  padding: 15px 20.43px;
+  background-color: #A26A5E;
+  height: 120px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.artist-home-top-grid .row-one .left-inner-row-one {
+  margin-right: 18px;
+}
+.artist-home-top-grid a {
+  text-decoration: none;
+  text-align: center;
+  color: #FCEBD5;
+  background-color: #D54C2E;
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20.43px;
+}
+
+#artistHome .chart {
+  padding: 20px 18px;
+}
+#artistHome .chart p {
+  color: #A26A5E;
+}
+#artistHome .chart .buttons-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#artistHome .chart .buttons-div button {
+  font-size: 12px;
+  padding: 6.5px 32px;
+  text-align: center;
+  color: #FCEBD5;
+  background-color: #A26A5E;
+}
+#artistHome .chart .buttons-div button:hover {
+  background-color: #D54C2E;
+}
+#artistHome .chart .buttons-div button:focus {
+  background-color: #D54C2E;
+}
+#artistHome .chart .main-chart-div {
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+
+.dropdown-wrapper {
+  width: 100%;
+  height: 191px;
+  position: absolute;
+  top: 69px;
+  left: 0;
+  background-color: #A26A5E;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.dropdown-wrapper .dropdown-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 21px;
+}
+.dropdown-wrapper .dropdown-inner a {
+  text-decoration: none;
+  font-size: 32px;
+  color: #FCEBD5;
+}
+
+.toggle-show-dropdown {
+  display: none;
+}
+
+#artists-items {
+  background-color: #EDD5BB;
+}
+#artists-items #addNewButtonOuter {
+  height: 120px;
+  margin: 26px 0px;
+}
+#artists-items #addNewButtonOuter #addNewButtonInner {
+  background-color: #FCEBD5;
+  margin: 11px 17px;
+  height: 98px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #A26A5E;
+}
+#artists-items #addNewButtonOuter #addNewButtonInner:hover {
+  cursor: pointer;
+}
+#artists-items #addNewButtonOuter #addNewButtonInner p {
+  text-align: center;
+  color: #A26A5E;
+  font-size: 18px;
+}
+#artists-items .card {
+  border: 0;
+  background-color: #FCEBD5;
+  margin: 20px 0;
+  color: #A26A5E;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#artists-items .card p {
+  font-size: 11px;
+}
+#artists-items .card h3 {
+  font-size: 14px;
+}
+#artists-items .card .card-first-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 19.84px;
+}
+#artists-items .card .card-first-row h3 {
+  font-family: "Reenie Beanie", cursive;
+  display: inline-block;
+  font-size: 30px;
+}
+#artists-items .card .card-first-row .frame10 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 20px;
+  font-size: 12px;
+}
+#artists-items .card .card-first-row .frame10 button {
+  background-color: #A26A5E;
+  color: #FCEBD5;
+  display: inline-block;
+  margin-left: 30%;
+  text-decoration: none;
+  padding: 3px 8px;
+  margin-right: 18px;
+}
+#artists-items .card .action-buttons {
+  background-color: #A26A5E;
+  padding: 10px 11.18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  overflow: hidden;
+}
+#artists-items .card .action-buttons button {
+  padding: 6.5px 17.5px;
+  margin-right: 0;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+#artists-items .card .action-buttons #sendCardToAuction {
+  background-color: #1B59AC;
+  color: #F8F8F8;
+}
+#artists-items .card .action-buttons #publishCard {
+  background-color: #1BAC6F;
+  color: #F8F8F8;
+}
+#artists-items .card .action-buttons #removeCard {
+  background-color: #D54C2E;
+  color: #FCEBD5;
+}
+#artists-items .card .action-buttons #editCard {
+  background-color: #FCEBD5;
+  color: #A26A5E;
+}
+
+#artistAddNewItem {
+  background-color: #A26A5E;
+  font-size: 18px;
+  color: #EDD5BB;
+}
+#artistAddNewItem form {
+  padding: 25px 18px 31px 18px;
+}
+#artistAddNewItem form #myPictureCanvas {
+  display: none;
+}
+#artistAddNewItem form p {
+  text-align: center;
+}
+#artistAddNewItem form input, #artistAddNewItem form textarea {
+  background-color: #A26A5E;
+  mix-blend-mode: normal;
+  outline: none;
+  border: 1px solid #EDD5BB;
+  border-radius: 2px;
+  color: #EDD5BB;
+}
+#artistAddNewItem form .first-row-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#artistAddNewItem form .first-row-form h1 {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: #FCEBD5;
+}
+#artistAddNewItem form .first-row-form span {
+  background-color: #EDD5BB;
+}
+#artistAddNewItem form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+#artistAddNewItem form .form-group .smallInput {
+  width: 175px;
+}
+#artistAddNewItem form .take-a-snapshot-div {
+  border: 2px dashed #FCEBD5;
+  border-radius: 2px;
+  background-color: #A26A5E;
+  color: #EDD5BB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 378px;
+  height: 309px;
+}
+#artistAddNewItem form .take-a-snapshot-div:hover {
+  cursor: pointer;
+}
+#artistAddNewItem form .take-a-snapshot-div p {
+  margin-top: 15px;
+}
+#artistAddNewItem form .add-new-items-buttons-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 19px;
+  margin-bottom: 31px;
+}
+#artistAddNewItem form .add-new-items-buttons-grid .add-new-item-btn {
+  background-color: #D54C2E;
+  color: #FCEBD5;
+  text-align: center;
+  padding: 8px 30.5px;
+}
+#artistAddNewItem form .add-new-items-buttons-grid .cancel-button {
+  background-color: #E5E5E5;
+  color: #5A5A5A;
+  text-align: center;
+  padding: 8px 59.5px;
+}
+
+#artistCaptureImage {
+  height: 100vh;
+  background-color: #A26A5E;
+}
+#artistCaptureImage .main-section-capture {
+  padding: 51px 18px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+#artistCaptureImage .main-section-capture #liveStream {
+  width: 100%;
+  height: 657px;
+}
+#artistCaptureImage .main-section-capture .captureImage {
+  background-color: #A26A5E;
+  color: #EDD5BB;
+}
+#artistCaptureImage .main-section-capture .captureImage:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
