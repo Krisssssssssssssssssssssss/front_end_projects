@@ -166,35 +166,35 @@ p {
   margin-bottom: 1.875rem;
 }
 
-#visitorHomePage nav, #visitorListingPage nav, #visitorFilters nav {
+#visitorHomePage nav, #visitorListingPage nav, #visitorFilters nav, #auction nav {
   background-color: #FCEBD5;
 }
-#visitorHomePage nav .nav-landing, #visitorListingPage nav .nav-landing, #visitorFilters nav .nav-landing {
+#visitorHomePage nav .nav-landing, #visitorListingPage nav .nav-landing, #visitorFilters nav .nav-landing, #auction nav .nav-landing {
   font-family: "Reenie Beanie", cursive;
   height: 69px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
 }
-#visitorHomePage nav .nav-landing .left-section, #visitorListingPage nav .nav-landing .left-section, #visitorFilters nav .nav-landing .left-section {
+#visitorHomePage nav .nav-landing .left-section, #visitorListingPage nav .nav-landing .left-section, #visitorFilters nav .nav-landing .left-section, #auction nav .nav-landing .left-section {
   display: flex;
   align-items: center;
 }
-#visitorHomePage nav .nav-landing .left-section a, #visitorListingPage nav .nav-landing .left-section a, #visitorFilters nav .nav-landing .left-section a {
+#visitorHomePage nav .nav-landing .left-section a, #visitorListingPage nav .nav-landing .left-section a, #visitorFilters nav .nav-landing .left-section a, #auction nav .nav-landing .left-section a {
   display: flex;
   align-items: center;
   text-decoration: none;
   z-index: 2;
 }
-#visitorHomePage nav .nav-landing .left-section a img, #visitorListingPage nav .nav-landing .left-section a img, #visitorFilters nav .nav-landing .left-section a img {
+#visitorHomePage nav .nav-landing .left-section a img, #visitorListingPage nav .nav-landing .left-section a img, #visitorFilters nav .nav-landing .left-section a img, #auction nav .nav-landing .left-section a img {
   margin-bottom: -20px;
 }
-#visitorHomePage nav .nav-landing .left-section a p, #visitorListingPage nav .nav-landing .left-section a p, #visitorFilters nav .nav-landing .left-section a p {
+#visitorHomePage nav .nav-landing .left-section a p, #visitorListingPage nav .nav-landing .left-section a p, #visitorFilters nav .nav-landing .left-section a p, #auction nav .nav-landing .left-section a p {
   margin: 0;
   color: #A26A5E;
   font-size: 1.5625rem;
 }
-#visitorHomePage nav .nav-landing .right-section, #visitorListingPage nav .nav-landing .right-section, #visitorFilters nav .nav-landing .right-section {
+#visitorHomePage nav .nav-landing .right-section, #visitorListingPage nav .nav-landing .right-section, #visitorFilters nav .nav-landing .right-section, #auction nav .nav-landing .right-section {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
@@ -541,10 +541,10 @@ p {
   margin: 25px 0px;
 }
 
-#artistHome nav, #artists-items nav, #artistAddNewItem nav, #artistCaptureImage nav {
+#artistHome nav, #artists-items nav, #artistAddNewItem nav, #artistCaptureImage nav, #auction nav {
   background-color: #FCEBD5;
 }
-#artistHome nav .nav-artists, #artists-items nav .nav-artists, #artistAddNewItem nav .nav-artists, #artistCaptureImage nav .nav-artists {
+#artistHome nav .nav-artists, #artists-items nav .nav-artists, #artistAddNewItem nav .nav-artists, #artistCaptureImage nav .nav-artists, #auction nav .nav-artists {
   height: 69px;
   display: flex;
   justify-content: space-between;
@@ -553,26 +553,26 @@ p {
   font-family: "Reenie Beanie", cursive;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
-#artistHome nav .nav-artists .left-side, #artists-items nav .nav-artists .left-side, #artistAddNewItem nav .nav-artists .left-side, #artistCaptureImage nav .nav-artists .left-side {
+#artistHome nav .nav-artists .left-side, #artists-items nav .nav-artists .left-side, #artistAddNewItem nav .nav-artists .left-side, #artistCaptureImage nav .nav-artists .left-side, #auction nav .nav-artists .left-side {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#artistHome nav .nav-artists .left-side .logo, #artists-items nav .nav-artists .left-side .logo, #artistAddNewItem nav .nav-artists .left-side .logo, #artistCaptureImage nav .nav-artists .left-side .logo {
+#artistHome nav .nav-artists .left-side .logo, #artists-items nav .nav-artists .left-side .logo, #artistAddNewItem nav .nav-artists .left-side .logo, #artistCaptureImage nav .nav-artists .left-side .logo, #auction nav .nav-artists .left-side .logo {
   margin-bottom: -20px;
 }
-#artistHome nav .nav-artists .left-side a, #artists-items nav .nav-artists .left-side a, #artistAddNewItem nav .nav-artists .left-side a, #artistCaptureImage nav .nav-artists .left-side a {
+#artistHome nav .nav-artists .left-side a, #artists-items nav .nav-artists .left-side a, #artistAddNewItem nav .nav-artists .left-side a, #artistCaptureImage nav .nav-artists .left-side a, #auction nav .nav-artists .left-side a {
   display: inline-block;
   text-decoration: none;
 }
-#artistHome nav .nav-artists .left-side a h1, #artists-items nav .nav-artists .left-side a h1, #artistAddNewItem nav .nav-artists .left-side a h1, #artistCaptureImage nav .nav-artists .left-side a h1 {
+#artistHome nav .nav-artists .left-side a h1, #artists-items nav .nav-artists .left-side a h1, #artistAddNewItem nav .nav-artists .left-side a h1, #artistCaptureImage nav .nav-artists .left-side a h1, #auction nav .nav-artists .left-side a h1 {
   margin-bottom: 0;
   font-size: 1.875rem;
   line-height: 1.875rem;
   display: inline-block;
 }
-#artistHome nav .nav-artists .right-side, #artists-items nav .nav-artists .right-side, #artistAddNewItem nav .nav-artists .right-side, #artistCaptureImage nav .nav-artists .right-side {
+#artistHome nav .nav-artists .right-side, #artists-items nav .nav-artists .right-side, #artistAddNewItem nav .nav-artists .right-side, #artistCaptureImage nav .nav-artists .right-side, #auction nav .nav-artists .right-side {
   flex-basis: 5%;
   margin: 20px;
 }

@@ -1,9 +1,52 @@
 import { createArtistItemsPageCard, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 
+// export function setCurrentArtist(artist){
+//     // currentArtist = artist
+//     localStorage.setItem('currentArtist', artist)
+//     }
+//     export function getCurrentArtist(){
+//     return localStorage.getItem('currentArtist') ?? localStorage.getItem('currentArtist').value
+//     }
+// let storedArray = localStorage.getItem(getCurrentArtist()+'currentActualArray');
+// export let filteredArrayArtist;
 
-export let filteredArrayArtist = [];
-export const initArtistItems = function () {
+export let auctioningItemsArray;
+export let localStorageItemAray;
+export let publishedOrNot;
+
+
+
+
+ export const initArtistItems = function () {
+    // Artist's arrays
+    if (localStorage.getItem(getCurrentArtist()+'currentActualArray')) {
+        localStorageItemAray = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+       }
+   else {
+       localStorage.setItem(getCurrentArtist()+'currentActualArray', JSON.stringify(items));
+       localStorageItemAray = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+   }
+//    Published or not
+    if (localStorage.getItem('publishedOrNotArray')) {
+        publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+       }
+   else {
+        localStorage.setItem('publishedOrNotArray', JSON.stringify(items))
+        publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+   }
+//    auctioning Array
+   if (localStorage.getItem('auctioningItemsArray')) {
+    auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
+}
+else {
+    localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray));
+    auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
+
+}
+console.log(auctioningItemsArray)
+//    localStorage.setItem('publishedOrNotArray', JSON.stringify(publishedOrNot))
+
     let artistNameHeaderItems = document.querySelector('.artistNameHeaderItems')
     artistNameHeaderItems.innerText = getCurrentArtist()
 
@@ -12,44 +55,10 @@ const addNewButtonItemsPage = document.querySelector('#addNewButtonInner')
 addNewButtonItemsPage.addEventListener('click', function () {
     location.hash = '#artistAddNewItem'
 })
-if (mainSectionContainer.innerHTML !== '') {
-    mainSectionContainer.innerHTML = '';
-    filteredArrayArtist.forEach(item => 
-        {
 
-            const card = createArtistItemsPageCard(item);
-            const actionButtons = document.createElement('div');
-            actionButtons.classList.add('action-buttons');
-            
-            const sendToAuctionButton = document.createElement('button');
-            sendToAuctionButton.setAttribute('id', 'sendCardToAuction');
-            sendToAuctionButton.textContent = 'Send to Auction';
-            actionButtons.appendChild(sendToAuctionButton);
-            
-            const unpublishButton = document.createElement('button');
-            unpublishButton.setAttribute('id', 'publishCard');
-            unpublishButton.textContent = 'Unpublish';
-            actionButtons.appendChild(unpublishButton);
-            
-            const removeButton = document.createElement('button');
-            removeButton.setAttribute('id', 'removeCard');
-            removeButton.textContent = 'Remove';
-            actionButtons.appendChild(removeButton);
-            
-            const editButton = document.createElement('button');
-            editButton.setAttribute('id', 'editCard');
-            editButton.textContent = 'Edit';
-            actionButtons.appendChild(editButton);
-
-            card.appendChild(actionButtons);
-            mainSectionContainer.appendChild(card);
-        }
-        )
-}
-else {
-    
-filteredArrayArtist = items.filter(item => item.artist === getCurrentArtist())
-filteredArrayArtist.forEach(item => 
+mainSectionContainer.innerHTML = ''
+localStorageItemAray = localStorageItemAray.filter(item => item.artist === getCurrentArtist())
+localStorageItemAray.forEach(item => 
     {
         const card = createArtistItemsPageCard(item);
         const actionButtons = document.createElement('div');
@@ -57,7 +66,22 @@ filteredArrayArtist.forEach(item =>
         
         const sendToAuctionButton = document.createElement('button');
         sendToAuctionButton.setAttribute('id', 'sendCardToAuction');
-        sendToAuctionButton.textContent = 'Send to Auction';
+        sendToAuctionButton.textContent = !item.isAuctioning ? 'Send to Auction' : 'Already Auctioning!';
+        sendToAuctionButton.addEventListener('click', function () {
+            if (!localStorage.getItem(getCurrentArtist() + ' isauctioning')) {
+                localStorage.setItem(getCurrentArtist() + ' isauctioning', 'auctioning');
+                item.isAuctioning = true;
+                 auctioningItemsArray.push(item);
+                 localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray))
+                
+                localStorage.setItem(getCurrentArtist() + 'currentActualArray', JSON.stringify(localStorageItemAray));
+                sendToAuctionButton.innerText = 'Already Auctioning'
+                
+            } else {
+                alert('You already have one Item that is auctioning');
+            }
+        });
+        
         actionButtons.appendChild(sendToAuctionButton);
         
         const unpublishButton = document.createElement('button');
@@ -80,5 +104,49 @@ filteredArrayArtist.forEach(item =>
         mainSectionContainer.appendChild(card);
     }
     )
+    localStorage.setItem(getCurrentArtist()+'currentActualArray', JSON.stringify(localStorageItemAray))
+    
 }
-}
+// ke smeni inner text
+// napraj += diektno tuka na innerhtml u auction i direktno selektiraj elemnet da ja stavi sumata vo  artist home;
+// a moze i vo array da ostane pa filter po artist i uctioning pa sumata
+// ako negovoto ime e vo local Storage, togas artist navbar, ako ne vistor. I isto krienje na delot za bid ako e artist
+
+
+// if (mainSectionContainer.innerHTML !== '') {
+//     mainSectionContainer.innerHTML = '';
+//     filteredArrayArtist.forEach(item => 
+//         {
+//             const card = createArtistItemsPageCard(item);
+//             const actionButtons = document.createElement('div');
+//             actionButtons.classList.add('action-buttons');
+            
+            
+//             const sendToAuctionButton = document.createElement('button');
+//             sendToAuctionButton.setAttribute('id', 'sendCardToAuction');
+//             sendToAuctionButton.textContent = 'Send to Auction';
+//             actionButtons.appendChild(sendToAuctionButton);
+
+            
+//             const unpublishButton = document.createElement('button');
+//             unpublishButton.setAttribute('id', 'publishCard');
+//             unpublishButton.textContent = 'Unpublish';
+//             actionButtons.appendChild(unpublishButton);
+            
+//             const removeButton = document.createElement('button');
+//             removeButton.setAttribute('id', 'removeCard');
+//             removeButton.textContent = 'Remove';
+//             actionButtons.appendChild(removeButton);
+            
+//             const editButton = document.createElement('button');
+//             editButton.setAttribute('id', 'editCard');
+//             editButton.textContent = 'Edit';
+//             actionButtons.appendChild(editButton);
+
+//             card.appendChild(actionButtons);
+//             mainSectionContainer.appendChild(card);
+//         }
+//         )
+// }
+// else {
+// }

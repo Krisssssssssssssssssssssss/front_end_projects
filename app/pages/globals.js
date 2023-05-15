@@ -100,3 +100,52 @@ export function createVisitorCard({ title, description, price, artist }, idx) {
     cardDiv.appendChild(cardBodyDiv);
     return cardDiv;
   }
+export function createAuctionCards ({img, description, title, artist}) {
+   const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    
+    
+    let imageSrc = img;
+    const imgElem = document.createElement('img');
+    imgElem.classList.add('card-img-top');
+    imgElem.src = imageSrc;
+    imgElem.alt = title;
+    
+   
+    const cardBodyDiv = document.createElement('div');
+    cardBodyDiv.classList.add('card-body');
+    
+ 
+    const cardFirstRowDiv = document.createElement('div');
+    cardFirstRowDiv.classList.add('card-first-row');
+    
+   
+    const cardTitle = document.createElement('h6');
+    cardTitle.classList.add('card-text');
+    cardTitle.textContent = title;
+    
+   
+    const frame10Div = document.createElement('div');
+    frame10Div.classList.add('frame10');
+    
+   
+    const artistField = document.createElement('div');
+    artistField.classList.add('frame10');
+    artistField.textContent = `$${artist}`;
+    
+    
+    const descriptionCard = document.createElement('p');
+    descriptionCard.classList.add('card-text');
+    descriptionCard.textContent = description;
+    
+    
+    frame10Div.appendChild(artistField);
+    cardFirstRowDiv.appendChild(cardTitle);
+    cardFirstRowDiv.appendChild(frame10Div);
+    cardBodyDiv.appendChild(cardFirstRowDiv);
+   
+    cardBodyDiv.appendChild(descriptionCard);
+    cardDiv.appendChild(imgElem);
+    cardDiv.appendChild(cardBodyDiv);
+    return cardDiv;
+}

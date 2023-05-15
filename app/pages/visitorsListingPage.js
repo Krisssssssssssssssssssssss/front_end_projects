@@ -26,5 +26,6 @@ const filtersButtonContainer = document.querySelector('#filter-btn');
 filtersButtonContainer.addEventListener('click', () => {
   location.hash = '#visitorFilters'
 });
+
     }
     

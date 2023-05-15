@@ -2,6 +2,7 @@ import { dropdownMenuToggle, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 import { imageUrlInput, imgUrl, myCanvas, takeSnapshotBtn } from "./artistCaptureImage.js"
 
+export let isEdit = false;
 export const initArtistAddNewItem = function () {
     const artistNameHeaderNewItem = document.querySelector('.artistNameHeaderNewItem')
     const takeSnapshotBtn = document.querySelector('#take-a-snapshot-div')
@@ -16,14 +17,14 @@ dropdownMenuToggleTags.forEach(tag => {
         imageUrlInput.value = '';
     })
 })
-
-
-
-
-
-
 takeSnapshotBtn.addEventListener('click', function (e){
     e.stopImmediatePropagation();
     location.hash = '#artistCaptureImage';
 })
+// if (innertextot){
+
+// }
+// else {
+    
+// }
 }

@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mix;
 @use 'sass:math';
 
-#artistHome, #artists-items, #artistAddNewItem, #artistCaptureImage {
+#artistHome, #artists-items, #artistAddNewItem, #artistCaptureImage, #auction {
 nav {
     background-color: var.$light-background;
     .nav-artists {

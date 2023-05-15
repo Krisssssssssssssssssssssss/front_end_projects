@@ -12,6 +12,7 @@ export function initLandingPage() {
                 mySelect.innerHTML += `<option value="${element}">${element}</option>`;
             });
             // mySelect.removeEventListener('change', onArtistChange)
+            localStorage.removeItem('currentArtist')
             mySelect.addEventListener('change', onArtistChange)
             document.querySelector('.bottom-part').addEventListener('click', ()=>{location.hash = '#visitorHomePage';})
         })

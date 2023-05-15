@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mix;
 @use "sass:math";
 
-#visitorHomePage, #visitorListingPage, #visitorFilters {
+#visitorHomePage, #visitorListingPage, #visitorFilters, #auction {
   nav {
       background-color: var.$light-background;
     .nav-landing {
