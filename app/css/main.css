@@ -38,6 +38,10 @@ body .styled-text {
   font-family: "Reenie Beanie", cursive;
 }
 
+.dropdown-wrapper {
+  z-index: 1;
+}
+
 h1 {
   color: #A26A5E;
 }
@@ -70,7 +74,7 @@ p {
   z-index: 3;
 }
 
-#visitorListingPage .card, #landingPage .logo {
+#auction #main-part-auction .card, #visitorListingPage .card, #landingPage .logo {
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
 }
@@ -887,6 +891,31 @@ p {
 }
 #artistCaptureImage .main-section-capture .captureImage:hover {
   cursor: pointer;
+}
+
+#auction {
+  background-color: #EDD5BB;
+}
+#auction #main-part-auction {
+  min-height: calc(100vh - 69px);
+  padding: 1.875rem;
+}
+#auction #main-part-auction .card {
+  background-color: #FCEBD5;
+  font-family: "Reenie Beanie", cursive;
+  color: #A26A5E;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+#auction #main-part-auction .card img :hover {
+  transform: scaleY(1.1);
+}
+#auction #main-part-auction .card .card-text {
+  font-size: 25px;
+  margin-bottom: 0;
+  color: #D54C2E;
+}
+#auction #main-part-auction .card .frame10 {
+  font-size: 19px;
 }
 
 /*# sourceMappingURL=main.css.map */

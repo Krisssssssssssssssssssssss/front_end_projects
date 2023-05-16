@@ -8,43 +8,44 @@ import { items } from "../../data/data.js";
 //     export function getCurrentArtist(){
 //     return localStorage.getItem('currentArtist') ?? localStorage.getItem('currentArtist').value
 //     }
-// let storedArray = localStorage.getItem(getCurrentArtist()+'currentActualArray');
+// let storedArray = localStorage.getItem(getCurrentArtist()+'localStorageItemAray');
 // export let filteredArrayArtist;
 
-export let auctioningItemsArray;
-export let localStorageItemAray;
-export let publishedOrNot;
+// export let auctioningItemsArray;
+// export let publishedOrNot;
 
 
+// //    Published or not
+//     if (localStorage.getItem('publishedOrNotArray')) {
+    //         publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'localStorageItemAray'));
+    //        }
+    //    else {
+//         localStorage.setItem('publishedOrNotArray', JSON.stringify(items))
+//         publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'localStorageItemAray'));
+//    }
+// //    auctioning Array
+//    if (localStorage.getItem('auctioningItemsArray')) {
+//     auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
+// }
+// else {
+    //     localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray));
+    //     auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
+    
+    // }
+    export let localStorageItemAray;
+    let personalisedLocalStorageItemAray;
 
 
  export const initArtistItems = function () {
     // Artist's arrays
-    if (localStorage.getItem(getCurrentArtist()+'currentActualArray')) {
-        localStorageItemAray = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+    if (localStorage.getItem('localStorageItemAray')) {
+        localStorageItemAray = JSON.parse(localStorage.getItem('localStorageItemAray'));
        }
    else {
-       localStorage.setItem(getCurrentArtist()+'currentActualArray', JSON.stringify(items));
-       localStorageItemAray = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
+       localStorage.setItem('localStorageItemAray', JSON.stringify(items));
+       localStorageItemAray = JSON.parse(localStorage.getItem('localStorageItemAray'));
    }
-//    Published or not
-    if (localStorage.getItem('publishedOrNotArray')) {
-        publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
-       }
-   else {
-        localStorage.setItem('publishedOrNotArray', JSON.stringify(items))
-        publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'currentActualArray'));
-   }
-//    auctioning Array
-   if (localStorage.getItem('auctioningItemsArray')) {
-    auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
-}
-else {
-    localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray));
-    auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
 
-}
-console.log(auctioningItemsArray)
 //    localStorage.setItem('publishedOrNotArray', JSON.stringify(publishedOrNot))
 
     let artistNameHeaderItems = document.querySelector('.artistNameHeaderItems')
@@ -57,8 +58,8 @@ addNewButtonItemsPage.addEventListener('click', function () {
 })
 
 mainSectionContainer.innerHTML = ''
-localStorageItemAray = localStorageItemAray.filter(item => item.artist === getCurrentArtist())
-localStorageItemAray.forEach(item => 
+personalisedLocalStorageItemAray = localStorageItemAray.filter(item => item.artist === getCurrentArtist())
+personalisedLocalStorageItemAray.forEach(item => 
     {
         const card = createArtistItemsPageCard(item);
         const actionButtons = document.createElement('div');
@@ -71,10 +72,8 @@ localStorageItemAray.forEach(item =>
             if (!localStorage.getItem(getCurrentArtist() + ' isauctioning')) {
                 localStorage.setItem(getCurrentArtist() + ' isauctioning', 'auctioning');
                 item.isAuctioning = true;
-                 auctioningItemsArray.push(item);
-                 localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray))
                 
-                localStorage.setItem(getCurrentArtist() + 'currentActualArray', JSON.stringify(localStorageItemAray));
+                localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray));
                 sendToAuctionButton.innerText = 'Already Auctioning'
                 
             } else {
@@ -104,7 +103,8 @@ localStorageItemAray.forEach(item =>
         mainSectionContainer.appendChild(card);
     }
     )
-    localStorage.setItem(getCurrentArtist()+'currentActualArray', JSON.stringify(localStorageItemAray))
+    localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray))
+ 
     
 }
 // ke smeni inner text
