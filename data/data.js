@@ -845,20 +845,3 @@ export let items = [
         "type": "custom"
     }
 ]
-
-export class Item {
-    constructor(id, title, description, type, price, img) {
-        this.id = id,
-        this.title = title,
-        this.description = description,
-        this.type = type,
-        this.image = img,
-        this.price = price,
-        this.artist = getCurrentArtist,
-        this.dateCreated = new Date()
-    }
-    isPublished = false;
-    isAuctioning = false;
-    dateSold = '';
-    priceSold = '';
-} 

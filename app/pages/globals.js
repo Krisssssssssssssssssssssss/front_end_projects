@@ -49,14 +49,14 @@ export function createVisitorCard({ title, description, price, artist }, idx) {
     </div>`;
   
     return cardHTML;
-  }
+}
 
-  export function createArtistItemsPageCard({ title, price, description}) {
+export function createArtistItemsPageCard({ title, price, description, img = './app/css/img/unsplash_5MTf9XyVVgM.png'}) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     
     
-    let imageSrc = './app/css/img/unsplash_5MTf9XyVVgM.png';
+    let imageSrc = img;
     const imgElem = document.createElement('img');
     imgElem.classList.add('card-img-top');
     imgElem.src = imageSrc;
@@ -99,7 +99,7 @@ export function createVisitorCard({ title, description, price, artist }, idx) {
     cardDiv.appendChild(imgElem);
     cardDiv.appendChild(cardBodyDiv);
     return cardDiv;
-  }
+}
 export function createAuctionCards ({image, title, artist}) {
    const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');

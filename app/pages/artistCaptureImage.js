@@ -52,7 +52,7 @@ export const initArtistCaptureImage = function () {
         location.hash = '#artistAddNewItem'
          imgUrl = myCanvas.toDataURL('image/png')
          imageUrlInput.value = imgUrl
-         imgUrl = ''
+        //  imgUrl = ''
          myCanvas.addEventListener('click', function(e){
             e.stopImmediatePropagation();
 
@@ -60,10 +60,15 @@ export const initArtistCaptureImage = function () {
          })
          imageUrlInput.addEventListener('keyup', function (e){
           e.stopImmediatePropagation();
-            if (imageUrlInput.value != imgUrl) {
-                myCanvas.style.display = 'none';
-                takeSnapshotBtn.style.display = 'flex';
-            }
+             if (imageUrlInput.value != imgUrl) {
+                 myCanvas.style.display = 'none';
+                 takeSnapshotBtn.style.display = 'flex';
+             }
+             else {
+               myCanvas.style.display = 'flex';
+               takeSnapshotBtn.style.display = 'none';
+             }
+
          })
         // capturedImageImg.src = imgUrl
 

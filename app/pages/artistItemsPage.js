@@ -1,8 +1,8 @@
 import { createArtistItemsPageCard, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
-
-    export let localStorageItemAray;
-    let personalisedLocalStorageItemAray;
+export let localStorageItemAray;
+let personalisedLocalStorageItemAray;
+export let indexOfTheItemAboutToBeEdited;
 
 
  export const initArtistItems = function () {
@@ -14,8 +14,6 @@ import { items } from "../../data/data.js";
        localStorage.setItem('localStorageItemAray', JSON.stringify(items));
        localStorageItemAray = JSON.parse(localStorage.getItem('localStorageItemAray'));
    }
-
-//    localStorage.setItem('publishedOrNotArray', JSON.stringify(publishedOrNot))
 
     let artistNameHeaderItems = document.querySelector('.artistNameHeaderItems')
     artistNameHeaderItems.innerText = getCurrentArtist()
@@ -79,8 +77,19 @@ personalisedLocalStorageItemAray.forEach(item =>
         const removeButton = document.createElement('button');
         removeButton.setAttribute('id', 'removeCard');
         removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', function () {
+            if (item.isAuctioning) {
+                localStorage.removeItem(getCurrentArtist() + ' isauctioning')
+            }
+            if (confirm("Are you sure you want to remove this item?")) {
+                card.remove();
+                let indexOfTheCard = localStorageItemAray.indexOf(item);
+                localStorageItemAray.splice(indexOfTheCard, 1);
+                localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray));
+            }
+        })
         actionButtons.appendChild(removeButton);
-        
+
         const editButton = document.createElement('button');
         editButton.setAttribute('id', 'editCard');
         editButton.textContent = 'Edit';
@@ -91,50 +100,5 @@ personalisedLocalStorageItemAray.forEach(item =>
         mainSectionContainer.appendChild(card);
     }
     )
-    localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray))
- 
-    
+    localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray))    
 }
-// ke smeni inner text
-// napraj += diektno tuka na innerhtml u auction i direktno selektiraj elemnet da ja stavi sumata vo  artist home;
-// a moze i vo array da ostane pa filter po artist i uctioning pa sumata
-// ako negovoto ime e vo local Storage, togas artist navbar, ako ne vistor. I isto krienje na delot za bid ako e artist
-
-
-// if (mainSectionContainer.innerHTML !== '') {
-//     mainSectionContainer.innerHTML = '';
-//     filteredArrayArtist.forEach(item => 
-//         {
-//             const card = createArtistItemsPageCard(item);
-//             const actionButtons = document.createElement('div');
-//             actionButtons.classList.add('action-buttons');
-            
-            
-//             const sendToAuctionButton = document.createElement('button');
-//             sendToAuctionButton.setAttribute('id', 'sendCardToAuction');
-//             sendToAuctionButton.textContent = 'Send to Auction';
-//             actionButtons.appendChild(sendToAuctionButton);
-
-            
-//             const unpublishButton = document.createElement('button');
-//             unpublishButton.setAttribute('id', 'publishCard');
-//             unpublishButton.textContent = 'Unpublish';
-//             actionButtons.appendChild(unpublishButton);
-            
-//             const removeButton = document.createElement('button');
-//             removeButton.setAttribute('id', 'removeCard');
-//             removeButton.textContent = 'Remove';
-//             actionButtons.appendChild(removeButton);
-            
-//             const editButton = document.createElement('button');
-//             editButton.setAttribute('id', 'editCard');
-//             editButton.textContent = 'Edit';
-//             actionButtons.appendChild(editButton);
-
-//             card.appendChild(actionButtons);
-//             mainSectionContainer.appendChild(card);
-//         }
-//         )
-// }
-// else {
-// }
