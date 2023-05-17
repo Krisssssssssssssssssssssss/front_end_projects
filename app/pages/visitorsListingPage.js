@@ -2,21 +2,29 @@ import { items } from "../../data/data.js";
 import { createVisitorCard } from "./globals.js";
 import { filteredArray } from "./visitorFilters.js";
 export let currentArrayOutlook;
+export let visitorsPageListItems;
 export function initVisitorsListingPage () {
   const visitorsListingPageContainer = document.querySelector('.listing-main-part');
 
-   const visitorsPageListingItems = items.filter(item => item.isPublished);
+   if (localStorage.getItem('localStorageItemAray')) {
+    visitorsPageListItems = JSON.parse(localStorage.getItem('localStorageItemAray'));
+   }
+else {
+   localStorage.setItem('localStorageItemAray', JSON.stringify(items));
+   visitorsPageListItems = JSON.parse(localStorage.getItem('localStorageItemAray'));
+}
+visitorsPageListItems = visitorsPageListItems.filter(item => item.isPublished);
  if(visitorsListingPageContainer.innerHTML !== 'empty') {
-  currentArrayOutlook = visitorsPageListingItems;
+  currentArrayOutlook = visitorsPageListItems;
   visitorsListingPageContainer.innerHTML = '';
-  visitorsPageListingItems.forEach((item, idx) => {
+  currentArrayOutlook.forEach((item, idx) => {
     let cardHTML = createVisitorCard(item, idx);
 visitorsListingPageContainer.innerHTML += cardHTML;
 })
  } else {
 currentArrayOutlook = filteredArray;
   visitorsListingPageContainer.innerHTML = '';
-  filteredArray.forEach((item, idx) => {
+  currentArrayOutlook.forEach((item, idx) => {
     let cardHTML = createVisitorCard(item, idx);
     visitorsListingPageContainer.innerHTML += cardHTML;
   })

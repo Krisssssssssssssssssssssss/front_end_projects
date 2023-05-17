@@ -5,6 +5,10 @@ export let filteredArray;
 export let editedOrNot;
 
 export function initVisitorFilters () {
+  let localeStorageArray;
+  if (localStorage.getItem('localStorageItemAray')) {
+      localeStorageArray = JSON.parse(localStorage.getItem('localStorageItemAray'));
+     }
   const visitorFilters = document.getElementById('visitorFilters');
   function slideFromRightToLeft() {
     visitorFilters.classList.add("slide");
@@ -33,7 +37,7 @@ typeValue = e.target.value;
    })
    const visitorsListingPageContainer = document.querySelector('.listing-main-part');
    
-  const visitorsPageListingItems = items.filter(item => item.isPublished);
+  const visitorsPageListingItems = localeStorageArray.filter(item => item.isPublished);
  const submitFilter = document.querySelector('#filter-btn-submit');
  submitFilter.addEventListener('click', function (){
      filteredArray = visitorsPageListingItems.filter(item =>

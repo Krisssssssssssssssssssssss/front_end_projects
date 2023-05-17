@@ -1,37 +1,6 @@
 import { createArtistItemsPageCard, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 
-// export function setCurrentArtist(artist){
-//     // currentArtist = artist
-//     localStorage.setItem('currentArtist', artist)
-//     }
-//     export function getCurrentArtist(){
-//     return localStorage.getItem('currentArtist') ?? localStorage.getItem('currentArtist').value
-//     }
-// let storedArray = localStorage.getItem(getCurrentArtist()+'localStorageItemAray');
-// export let filteredArrayArtist;
-
-// export let auctioningItemsArray;
-// export let publishedOrNot;
-
-
-// //    Published or not
-//     if (localStorage.getItem('publishedOrNotArray')) {
-    //         publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'localStorageItemAray'));
-    //        }
-    //    else {
-//         localStorage.setItem('publishedOrNotArray', JSON.stringify(items))
-//         publishedOrNot = JSON.parse(localStorage.getItem(getCurrentArtist()+'localStorageItemAray'));
-//    }
-// //    auctioning Array
-//    if (localStorage.getItem('auctioningItemsArray')) {
-//     auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
-// }
-// else {
-    //     localStorage.setItem('auctioningItemsArray', JSON.stringify(auctioningItemsArray));
-    //     auctioningItemsArray = JSON.parse(localStorage.getItem('auctioningItemsArray'))
-    
-    // }
     export let localStorageItemAray;
     let personalisedLocalStorageItemAray;
 
@@ -85,7 +54,26 @@ personalisedLocalStorageItemAray.forEach(item =>
         
         const unpublishButton = document.createElement('button');
         unpublishButton.setAttribute('id', 'publishCard');
-        unpublishButton.textContent = 'Unpublish';
+        if (item.isPublished){
+            unpublishButton.textContent = 'Unpublish'
+        }
+        else {
+            unpublishButton.textContent = 're-Publish'
+        }
+        unpublishButton.addEventListener('click', function () {
+            
+            if (item.isPublished){
+                unpublishButton.textContent = 're-Publish'
+                item.isPublished = false;
+                localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray));
+            }
+            else {
+                unpublishButton.textContent = 'Unpublish'
+                item.isPublished = true;
+                localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray));
+            }
+        })
+        localStorage.setItem('localStorageItemAray', JSON.stringify(localStorageItemAray));
         actionButtons.appendChild(unpublishButton);
         
         const removeButton = document.createElement('button');
