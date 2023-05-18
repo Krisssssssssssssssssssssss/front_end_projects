@@ -2,10 +2,11 @@ import { createArtistItemsPageCard, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 export let localStorageItemAray;
 let personalisedLocalStorageItemAray;
-export let indexOfTheItemAboutToBeEdited;
+export let idOfTheItemAboutToBeEdited = '';
 
 
  export const initArtistItems = function () {
+    idOfTheItemAboutToBeEdited = '';
     // Artist's arrays
     if (localStorage.getItem('localStorageItemAray')) {
         localStorageItemAray = JSON.parse(localStorage.getItem('localStorageItemAray'));
@@ -24,7 +25,7 @@ addNewButtonItemsPage.addEventListener('click', function () {
     location.hash = '#artistAddNewItem'
 })
 
-mainSectionContainer.innerHTML = ''
+mainSectionContainer.innerHTML = '';
 personalisedLocalStorageItemAray = localStorageItemAray.filter(item => item.artist === getCurrentArtist())
 personalisedLocalStorageItemAray.forEach(item => 
     {
@@ -93,6 +94,14 @@ personalisedLocalStorageItemAray.forEach(item =>
         const editButton = document.createElement('button');
         editButton.setAttribute('id', 'editCard');
         editButton.textContent = 'Edit';
+        editButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            card.remove();
+            console.log(idOfTheItemAboutToBeEdited)
+            idOfTheItemAboutToBeEdited = item.id;
+            console.log(idOfTheItemAboutToBeEdited)
+            location.hash = '#artistAddNewItem';
+        })
         actionButtons.appendChild(editButton);
 
 
