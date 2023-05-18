@@ -2,11 +2,11 @@ import { createArtistItemsPageCard, getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 export let localStorageItemAray;
 let personalisedLocalStorageItemAray;
-export let idOfTheItemAboutToBeEdited = '';
+// export let idOfTheItemAboutToBeEdited = '';
 
 
  export const initArtistItems = function () {
-    idOfTheItemAboutToBeEdited = '';
+    // idOfTheItemAboutToBeEdited = '';
     // Artist's arrays
     if (localStorage.getItem('localStorageItemAray')) {
         localStorageItemAray = JSON.parse(localStorage.getItem('localStorageItemAray'));
@@ -91,17 +91,30 @@ personalisedLocalStorageItemAray.forEach(item =>
         })
         actionButtons.appendChild(removeButton);
 
+        
+        const submitButton = document.querySelector('.add-new-item-btn')
+        submitButton.innerText = 'Add New Item'
         const editButton = document.createElement('button');
+        const myForm = document.querySelector('#myForm')
+        myForm.reset()
         editButton.setAttribute('id', 'editCard');
         editButton.textContent = 'Edit';
-        editButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            card.remove();
-            console.log(idOfTheItemAboutToBeEdited)
-            idOfTheItemAboutToBeEdited = item.id;
-            console.log(idOfTheItemAboutToBeEdited)
+        editButton.addEventListener('click', function (e) {
+            e.stopImmediatePropagation();
+            let title = document.querySelector('#addTitle');
+            let desc = document.querySelector('#addNewItemDescription');
+            let type = document.querySelector('#addType');
+            let price = document.querySelector('#addPrice');
+            let imageUrl = document.querySelector('#imageUrl');
+            title.value = item.title
+            desc.value = item.description
+            type.value = item.type
+            price.value = item.price
+            imageUrl.value = item.image
+            submitButton.innerText = 'Update';
+            localStorage.setItem('idOfTheItemAboutToBeEdited', item.id);
             location.hash = '#artistAddNewItem';
-        })
+          });
         actionButtons.appendChild(editButton);
 
 

@@ -1,5 +1,7 @@
 import { createAuctionCards, getCurrentArtist } from "./globals.js";
 export function initAuctionPage () {
+    const myForm = document.querySelector('#myForm')
+        myForm.reset()
     // mainPartAuction.innerHTML = '<h1>Currently There Are NO Auctioning Items Available</h1>'
 
     let auctioningItemsArray;

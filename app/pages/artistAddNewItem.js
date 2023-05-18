@@ -1,14 +1,13 @@
-import { dropdownMenuToggle, getCurrentArtist } from "./globals.js";
-import { items } from "../../data/data.js";
-import { imageUrlInput, imgUrl, myCanvas, takeSnapshotBtn } from "./artistCaptureImage.js"
-import { idOfTheItemAboutToBeEdited } from "./artistItemsPage.js";
+import { getCurrentArtist } from "./globals.js";
+
+import { imageUrlInput, imgUrl, myCanvas } from "./artistCaptureImage.js"
 
 
 export let isEdit = false;
 let arrayToWorkWithWhileOnThisPage;
 export const initArtistAddNewItem = function () {
     
-    console.log(idOfTheItemAboutToBeEdited)
+
     class Item {
         constructor(title, description, type, price, img = './app/css/img/unsplash_5MTf9XyVVgM.png', id) {
             
@@ -72,41 +71,39 @@ takeSnapshotBtn.addEventListener('click', function (e){
 })
 
 let submitButton = document.querySelector('.add-new-item-btn')
-let theObjectBeingEdited;
-theObjectBeingEdited = arrayToWorkWithWhileOnThisPage.find(item => item.id === idOfTheItemAboutToBeEdited);
-if (idOfTheItemAboutToBeEdited) {
-    submitButton.innerText = 'Update';
-    title.value = theObjectBeingEdited.title
-    desc.value = theObjectBeingEdited.description
-    type.value = theObjectBeingEdited.type
-    price.value = theObjectBeingEdited.price
-    imageUrlInput.value = theObjectBeingEdited.image
-    theObjectBeingEdited.id = idOfTheItemAboutToBeEdited;
-}
-else {
-    submitButton.innerText = 'Add New Item'
-}
-submitButton.addEventListener('click', function (e) {
-    e.preventDefault()
-    e.stopImmediatePropagation()
-    if (idOfTheItemAboutToBeEdited) {
-        let indexofTheEditedCard = arrayToWorkWithWhileOnThisPage.indexOf(theObjectBeingEdited);
-        arrayToWorkWithWhileOnThisPage.splice(indexofTheEditedCard, 1);
-        localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
-    }
 
-    const newItem = new Item (title.value, desc.value, type.value, price.value, imageUrlInput.value, new Date().valueOf())
-    arrayToWorkWithWhileOnThisPage.push(newItem);
+console.log(arrayToWorkWithWhileOnThisPage.length)
+submitButton.addEventListener("click", function (e) {
+    e.stopImmediatePropagation()
+    if (title.value && desc.value && type.value && price.value && imageUrlInput.value) {
+        if (submitButton.innerText == 'Update') {
     
+            let theObjectBeingEdited;
+        theObjectBeingEdited = arrayToWorkWithWhileOnThisPage.filter(item => {
+        return  item.id === JSON.parse(localStorage.getItem('idOfTheItemAboutToBeEdited'))
+    });
+    let itemToSplice = arrayToWorkWithWhileOnThisPage.indexOf(theObjectBeingEdited[0])
+    arrayToWorkWithWhileOnThisPage.splice(itemToSplice, 1)
+    let newItem = new Item (title.value, desc.value, type.value, price.value, imageUrlInput.value, new Date().valueOf())
+    arrayToWorkWithWhileOnThisPage.push(newItem);
+    console.log('edited')
+    console.log(arrayToWorkWithWhileOnThisPage.length)
     localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
-    submitButton.innerText = 'Add New Item'
-    myForm.reset()
     location.hash = '#artists-items';
+        }
+        else {
+            let newItem = new Item (title.value, desc.value, type.value, price.value, imageUrlInput.value, new Date().valueOf())
+            arrayToWorkWithWhileOnThisPage.push(newItem);
+            console.log('added')
+            console.log(arrayToWorkWithWhileOnThisPage.length)
+            localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
+            location.hash = '#artists-items';
+        }
+    }
 })
 localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage));
 let cancelButton = document.querySelector('.cancel-button')
 cancelButton.addEventListener('click', function (e){
-    // submitButton.innerText = 'Add New Item'
     e.preventDefault
     location.hash = '#artists-items'
      myForm.reset()
