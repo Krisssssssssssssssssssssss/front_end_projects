@@ -910,12 +910,59 @@ p {
   transform: scaleY(1.1);
 }
 #auction #main-part-auction .card .card-text {
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 0;
   color: #D54C2E;
 }
-#auction #main-part-auction .card .frame10 {
-  font-size: 19px;
+#auction #main-part-auction .card p {
+  font-size: 25px;
+}
+#auction #main-part-auction .card p #normal-text-by {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 12px;
+}
+#auction #main-part-auction hr {
+  width: 60%;
+}
+#auction #main-part-auction .bidding {
+  color: rgb(37, 37, 37);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-top: 1.875rem;
+}
+#auction #main-part-auction .bidding #biddingInput {
+  background-color: #EDD5BB;
+}
+#auction #main-part-auction .bidding #biddingInput:focus {
+  outline: none !important;
+  border: 1px #E09686;
+  box-shadow: 0 0 7px #D54C2E;
+}
+#auction #main-part-auction .bidding #biddingBtn {
+  padding: 5px 25px;
+  background-color: #E09686;
+  color: #F8F8F8;
+}
+#auction #main-part-auction .bidding #biddingBtn:hover {
+  color: #E09686;
+  background-color: #F8F8F8;
+}
+#auction #main-part-auction .bidding ul .mine {
+  margin-top: 5px;
+  color: saddlebrown;
+}
+#auction #main-part-auction .bidding ul .theirs {
+  margin-top: 5px;
+  color: rgb(182, 120, 76);
+}
+#auction #main-part-auction .artists-only p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+#auction #main-part-auction .artists-only p #theActualHigestBid {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 35px;
 }
 
 /*# sourceMappingURL=main.css.map */

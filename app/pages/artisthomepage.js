@@ -20,24 +20,37 @@ export function initArtistPage() {
     //     });
     // }) 
         // Number Data
-    const artistItems = items.filter(item => item.artist === getCurrentArtist());
+    // const artistItems = items.filter(item => item.artist === getCurrentArtist());
+    let artistItems;
+    if (localStorage.getItem("localStorageItemAray")){
+
+         artistItems = JSON.parse(localStorage.getItem("localStorageItemAray")).filter(item => item.artist === getCurrentArtist());
+    }
+    else {
+        artistItems = JSON.parse(localStorage.getItem("localStorageItemAray")).filter(item => item.artist === getCurrentArtist());
+    }
 
     const soldArtistItems = artistItems.filter(item => Boolean(item.priceSold))
     const totalItemsSoldDiv = document.querySelector('#totalItemsSold');
     totalItemsSoldDiv.innerHTML = `${soldArtistItems.length}/${artistItems.length}`;
 
     let totalIncome = 0;
+    let liveAuctioningItem = document.querySelector('#liveAuctioningItem');
+    liveAuctioningItem.innerText = 0;
     soldArtistItems.forEach(item => totalIncome += item.priceSold);
     const totalIncomeSpan = document.querySelector('#totalIncome');
     totalIncomeSpan.innerText = totalIncome;
     artistItems.forEach(item => {
-        const liveAuctioningItem = document.querySelector('#liveAuctioningItem');
         if(item.isAuctioning){
-            console.log('An item is auctioning')
+   
+            console.log(localStorage.getItem(`currentHighestBid${item.id}`))
+            liveAuctioningItem.innerText = JSON.parse(localStorage.getItem(`currentHighestBid${item.id}`))
+         
+
         }
-        else {
-            liveAuctioningItem.innerText = 0;
-        }
+        // else {
+        //     liveAuctioningItem.innerText = 0;
+        // }
     })
    
     // The Chart

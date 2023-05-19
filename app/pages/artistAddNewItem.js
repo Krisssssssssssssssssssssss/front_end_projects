@@ -1,5 +1,4 @@
 import { getCurrentArtist } from "./globals.js";
-
 import { imageUrlInput, imgUrl, myCanvas } from "./artistCaptureImage.js"
 
 
@@ -72,7 +71,6 @@ takeSnapshotBtn.addEventListener('click', function (e){
 
 let submitButton = document.querySelector('.add-new-item-btn')
 
-console.log(arrayToWorkWithWhileOnThisPage.length)
 submitButton.addEventListener("click", function (e) {
     e.stopImmediatePropagation()
     if (title.value && desc.value && type.value && price.value && imageUrlInput.value) {
@@ -82,20 +80,21 @@ submitButton.addEventListener("click", function (e) {
         theObjectBeingEdited = arrayToWorkWithWhileOnThisPage.filter(item => {
         return  item.id === JSON.parse(localStorage.getItem('idOfTheItemAboutToBeEdited'))
     });
+    if (theObjectBeingEdited[0].isAuctioning) {
+        localStorage.removeItem(getCurrentArtist() + " isauctioning");
+    }
     let itemToSplice = arrayToWorkWithWhileOnThisPage.indexOf(theObjectBeingEdited[0])
     arrayToWorkWithWhileOnThisPage.splice(itemToSplice, 1)
     let newItem = new Item (title.value, desc.value, type.value, price.value, imageUrlInput.value, new Date().valueOf())
     arrayToWorkWithWhileOnThisPage.push(newItem);
-    console.log('edited')
-    console.log(arrayToWorkWithWhileOnThisPage.length)
+
     localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
     location.hash = '#artists-items';
         }
         else {
             let newItem = new Item (title.value, desc.value, type.value, price.value, imageUrlInput.value, new Date().valueOf())
             arrayToWorkWithWhileOnThisPage.push(newItem);
-            console.log('added')
-            console.log(arrayToWorkWithWhileOnThisPage.length)
+
             localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
             location.hash = '#artists-items';
         }
@@ -108,5 +107,4 @@ cancelButton.addEventListener('click', function (e){
     location.hash = '#artists-items'
      myForm.reset()
 })
-
 }

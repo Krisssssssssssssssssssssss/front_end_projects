@@ -20,13 +20,77 @@
                   }
             }
             .card-text {
-                font-size: 25px;
+                font-size: 35px;
                 margin-bottom: 0;
                 color: var.$contrast-primary;
             }
-            .frame10 {
-                font-size: 19px;
+            p {
+                font-size: 25px;
+                #normal-text-by {
+                    font-family: var.$roboto;
+                    color: black;
+                    font-size: 12px;
+                }
             }
         }
-    }
+        hr {
+            width: 60%;
+        }
+        .bidding {
+            color: rgb(37, 37, 37);
+            font-family: var.$roboto;
+            font-size: 14px;
+            margin-top: var.$gutter-base;
+            #biddingInput {
+                background-color: var.$normal-background;
+                &:focus {
+                    outline: none !important;
+                    border:1px var.$dark-background;
+                    box-shadow: 0 0 7px var.$contrast-primary;
+                  }
+            }
+            #biddingBtn {
+                padding: 5px 25px;
+                background-color: var.$dark-background;
+                color: var.$white-text;
+                &:hover {
+                    color: var.$dark-background;
+                    background-color: var.$white-text;
+                }
+            }
+            ul {
+    
+                 .mine{
+                    margin-top: 5px;
+                    color: saddlebrown;
+                }
+                .theirs {
+                    margin-top: 5px;
+                    color: rgb(182, 120, 76)
+                }
+            }
+        }
+        .artists-only {
+                p {
+                    font-family: 'Courier New', Courier, monospace;
+                    font-size: 16px;
+                    #theActualHigestBid {
+                        font-family: 'Courier New', Courier, monospace;
+                        font-size: 35px;
+                    }
+                }
+            }
+    }  
+    
+//     <div class="bidding">
+//     <div>Highest Bid: <span id="highestBid"></span></div>
+
+//     <input type="number" step="10" id="biddingInput">
+//     <button id="biddingBtn">Bid</button>
+
+//     <ul id="biddingHistory">
+//         <!-- <li>1500</li>
+//         <li style="margin-left: 150px">1700</li> -->
+//     </ul>
+// </div>
 }
