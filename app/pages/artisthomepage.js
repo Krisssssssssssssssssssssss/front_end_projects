@@ -1,7 +1,7 @@
 import { getCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 import { formatDate, generateDateLabels } from "../utils/dates.js";
-// import { dropdownMenu } from "../main.js";
+
 let myChart;
 
 export function initArtistPage() {
@@ -9,24 +9,14 @@ export function initArtistPage() {
     let artistNameHeader = document.querySelector('.artistNameHeader')
     artistNameHeader.innerText = getCurrentArtist();
 
-    // Dropdown
-    // const dropdownButtons = document.querySelectorAll('.dropdown-button');
-    // // const dropdownMenu = document.querySelector('.dropdown-wrapper');
-    // // dropdownMenu.classList.add('toggle-show-dropdown');
-    // dropdownButtons.forEach(button => {
-    //     button.addEventListener('click', function (e){
-    //         e.stopImmediatePropagation();
-    //         dropdownMenu.classList.toggle('toggle-show-dropdown');
-    //     });
-    // }) 
-        // Number Data
-    // const artistItems = items.filter(item => item.artist === getCurrentArtist());
+   
     let artistItems;
     if (localStorage.getItem("localStorageItemAray")){
 
          artistItems = JSON.parse(localStorage.getItem("localStorageItemAray")).filter(item => item.artist === getCurrentArtist());
     }
     else {
+        localStorage.setItem("localStorageItemAray", JSON.stringify(items));
         artistItems = JSON.parse(localStorage.getItem("localStorageItemAray")).filter(item => item.artist === getCurrentArtist());
     }
 
@@ -42,15 +32,9 @@ export function initArtistPage() {
     totalIncomeSpan.innerText = totalIncome;
     artistItems.forEach(item => {
         if(item.isAuctioning){
-   
-            console.log(localStorage.getItem(`currentHighestBid${item.id}`))
-            liveAuctioningItem.innerText = JSON.parse(localStorage.getItem(`currentHighestBid${item.id}`))
-         
-
+            liveAuctioningItem.innerText = JSON.parse(localStorage.getItem(`currentHighestBid${item.id}`).toString())
         }
-        // else {
-        //     liveAuctioningItem.innerText = 0;
-        // }
+
     })
    
     // The Chart

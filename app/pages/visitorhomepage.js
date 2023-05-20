@@ -27,7 +27,7 @@ export const slider = function (slidesToCheck, toLeft, toRight) {
       );
     };
   
-    // Next slide
+
     const nextSlide = function () {
       if (curSlide === maxSlide - 1) {
         curSlide = 0;

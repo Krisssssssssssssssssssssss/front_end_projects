@@ -51,25 +51,13 @@ export function initAuctionPage() {
           const card = createAuctionCards(item);
           mainPartAuction.append(card);
          
-          const divForArtists = card.querySelectorAll('.artists-only');
+        //   const divForArtists = card.querySelectorAll('.artists-only');
           const divForVisitors = card.querySelectorAll('.div-to-show-to-visitors-only');
         //   divForArtists.forEach(element => element.style.display = "none");
           divForVisitors.forEach(element => element.style.display = "block");
 
 
         });
-        
-                    // const theArtistHighesBid = document.querySelector('#theActualHigestBid')
-                    // theArtistHighesBid.textContent = "Current Highest Bid: $0";
-                    // if (value) {
-                    //     theArtistHighesBid.textContent = `Current Highest Bid: $${value}`;
-                    // }
-                    // else {
-                    //     theArtistHighesBid.textContent = `Current Highest Bid: $0`;
-                    // }
-
-        
-    
       }
     
       
@@ -80,32 +68,22 @@ export function initAuctionPage() {
     document.querySelector(".artistAuctionPageH1").innerText = getCurrentArtist();
 
 
-
-
     mainPartAuction.innerHTML =
     "<h1>Currently There Are NO Auctioning Items to Display.</h1>";
     auctioningItemsArray = auctioningItemsArray.filter(item => item.artist == getCurrentArtist());
     auctioningItemsArray.forEach((item) => {
         mainPartAuction.innerHTML = '';
 
-      const card = createAuctionCards(item);
-      mainPartAuction.append(card);
-
-      let artistFieldHeader = document.querySelectorAll('.frame10');
-      if (getCurrentArtist()) {
-        artistFieldHeader.forEach(card => card.style.display = "none");
-      }
+        const card = createAuctionCards(item);
+        mainPartAuction.append(card);
   
       const divForArtists = card.querySelectorAll('.artists-only');
       const divForVisitors = card.querySelectorAll('.div-to-show-to-visitors-only');
-      const frame10 = document.querySelector('.frame10')
-      frame10.style.display = "none";
       divForArtists.forEach(element => element.style.display = "block");
       divForVisitors.forEach(element => element.style.display = "none");
     });
-
-  
-
+    let artistFieldHeader = document.querySelectorAll('.frame10');
+    artistFieldHeader.forEach(card => card.style.display = "none");
   } 
     }
   
