@@ -96,6 +96,7 @@ export function createArtistItemsPageCard({ title, price, description, img = './
     cardDiv.appendChild(cardBodyDiv);
     return cardDiv;
 }
+
 export function createAuctionCards ({image, title, artist, id}) {
    const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
@@ -194,12 +195,13 @@ export function createAuctionCards ({image, title, artist, id}) {
 if (localStorage.getItem(`hideTheButton${id}`)) {
   biddingBtn.style.display = 'none';
 }
-console.log(localStorage.getItem(`hideTheButton${id}`))
+let time = 120;
     biddingBtn.addEventListener('click', function () 
     {
       // if (biddingInput.value > theActualHighestBid) {
       //   theActualHighestBid.textContent = JSON.parse(localStorage.getItem(`currentHighestBid${id}`))
         if (Number(biddingInput.value) > Number(theActualHighestBid.textContent)) {
+          
           theActualHighestBid.textContent = biddingInput.value;
           console.log(biddingInput.value)
           // console.log(theActualHighestBid.text)
@@ -219,6 +221,7 @@ console.log(localStorage.getItem(`hideTheButton${id}`))
             .then(data => {
       
               if (data.isBidding) {
+                time += 60;
                 theActualHighestBid.textContent = data.bidAmount;
                 localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
                 biddingHistoryList.innerHTML += `<li class="theirs">&rarr; Someone else bidded: $${data.bidAmount}</li>`
@@ -229,7 +232,7 @@ console.log(localStorage.getItem(`hideTheButton${id}`))
               } else {
                 theActualHighestBid.textContent = biddingInput.value;
                 // localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
-                biddingHistoryList.innerHTML += `<li class="theirs">&rarr; They give up!</li>`;
+                biddingHistoryList.innerHTML += `<li class="theirs">&rarr; They gave up!</li>`;
                 localStorage.setItem(`biddingHistory${id}`, JSON.stringify(biddingHistoryList.innerHTML));
                 biddingBtn.style.display = 'none';
                 localStorage.setItem(`hideTheButton${id}`, true)
@@ -246,9 +249,64 @@ console.log(localStorage.getItem(`hideTheButton${id}`))
         }
   // }
   })
+  let timerDiv = document.createElement("p");
+  timerDiv.className = "autionTimer"
+  cardDiv.appendChild(timerDiv)
+  
+  timerDiv.textContent = time;
+
+
+  const intervalId = setInterval(function () {
+
+    time -= 1
+    timerDiv.textContent = `Time left: ${time}`
+
+    if (time == 0) {
+      clearInterval(intervalId)
+      // auction finished
+      // set dateSold: new Date()
+      // set priceSold: highestBid.textContent
+      // disable bid button and input
+      // clear global variable
+    }
+
+  }, 1000)
+
+
+
+
+
+
     return cardDiv;
 }
-// auction finished on the clock
+
+
+
+function initAuctionTimer(whenDone) {
+  let time = 120
+
+  let timerDiv = document.querySelectorAll("h2");
+  const biddingBtn = document.querySelector('#biddingBtn')
+  const highestBid = document.querySelector('#highestBid')
+
+  timerDiv.textContent = time
+
+  const intervalId = setInterval(function () {
+
+    time -= 1
+    timerDiv.textContent = time
+
+    if (time == 0) {
+      clearInterval(intervalId)
+      whenDone()
+      // auction finished
+      // set dateSold: new Date()
+      // set priceSold: highestBid.textContent
+      // disable bid button and input
+      // clear global variable
+
+
+      // auction finished on the clock
 // remove clock from localStorage
 // remove localStorage.setItem(`hideTheButton${id}`, true)
 // is Auctioning false
@@ -258,3 +316,14 @@ console.log(localStorage.getItem(`hideTheButton${id}`))
 // localStorage.getItem(`currentHighestBid${id}`)
 // localStorage.getItem(`biddingHistory${id}`)
 // localStorage.getItem(getCurrentArtist() + " isauctioning")   ==== moze da se zeme "artist" od parametar
+    }
+
+  }, 1000)
+
+  biddingBtn.addEventListener('click', function () {
+    time += 60;
+  })
+
+}
+
+

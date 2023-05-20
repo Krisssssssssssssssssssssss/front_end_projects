@@ -922,6 +922,12 @@ p {
   color: black;
   font-size: 12px;
 }
+#auction #main-part-auction .card .autionTimer {
+  color: black;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0px 20px 0px auto;
+}
 #auction #main-part-auction hr {
   width: 60%;
 }
@@ -972,6 +978,7 @@ p {
 #auction #main-part-auction .artists-only p {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
+  margin-bottom: 0;
 }
 #auction #main-part-auction .artists-only p #theActualHigestBid {
   font-family: "Courier New", Courier, monospace;

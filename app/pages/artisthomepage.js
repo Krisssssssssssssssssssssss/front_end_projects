@@ -8,7 +8,7 @@ export function initArtistPage() {
     // Artist Name
     let artistNameHeader = document.querySelector('.artistNameHeader')
     artistNameHeader.innerText = getCurrentArtist();
-
+    
    
     let artistItems;
     if (localStorage.getItem("localStorageItemAray")){
