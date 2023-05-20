@@ -24,7 +24,7 @@ window.addEventListener('hashchange', function (e) {
 
 })
 }
-export function createVisitorCard({ title, description, price, artist }, idx) {
+export function createVisitorCard({ title, description, price, artist}, idx) {
     const evenOdd = idx % 2 ? 'dark' : 'light';
     const imageSrc = evenOdd === 'dark'
       ? './app/css/img/unsplash_fRBpWLAcWIY.png'
@@ -195,13 +195,14 @@ export function createAuctionCards ({image, title, artist, id}) {
 if (localStorage.getItem(`hideTheButton${id}`)) {
   biddingBtn.style.display = 'none';
 }
-let time = 120;
-    biddingBtn.addEventListener('click', function () 
+let time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
+    biddingBtn.addEventListener('click', function (e) 
     {
+      e.stopImmediatePropagation()
       // if (biddingInput.value > theActualHighestBid) {
       //   theActualHighestBid.textContent = JSON.parse(localStorage.getItem(`currentHighestBid${id}`))
         if (Number(biddingInput.value) > Number(theActualHighestBid.textContent)) {
-          
+          time += 10;
           theActualHighestBid.textContent = biddingInput.value;
           console.log(biddingInput.value)
           // console.log(theActualHighestBid.text)
@@ -221,7 +222,7 @@ let time = 120;
             .then(data => {
       
               if (data.isBidding) {
-                time += 60;
+                time += 10;
                 theActualHighestBid.textContent = data.bidAmount;
                 localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
                 biddingHistoryList.innerHTML += `<li class="theirs">&rarr; Someone else bidded: $${data.bidAmount}</li>`
@@ -253,60 +254,45 @@ let time = 120;
   timerDiv.className = "autionTimer"
   cardDiv.appendChild(timerDiv)
   
+
   timerDiv.textContent = time;
 
-
   const intervalId = setInterval(function () {
 
     time -= 1
-    timerDiv.textContent = `Time left: ${time}`
+    timerDiv.textContent = `Time left: ${time}s`
 
-    if (time == 0) {
+    if (time <= 0) {
       clearInterval(intervalId)
-      // auction finished
-      // set dateSold: new Date()
-      // set priceSold: highestBid.textContent
-      // disable bid button and input
-      // clear global variable
-    }
+      timerDiv.textContent = 'Auction Finished!';
+      let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
+      let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
+      
+      arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
 
-  }, 1000)
-
-
-
-
-
-
-    return cardDiv;
-}
+     itemToEdit[0].dateSold = new Date();
+     itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
+     itemToEdit[0].isAuctioning = false;
+      arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
+      localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
 
 
+      localStorage.removeItem(`timeLeft${id}`)
+      localStorage.removeItem(`biddingHistory${id}`)
+      localStorage.removeItem(`currentHighestBid${id}`)
+      localStorage.removeItem(`timeLeft${id}`)
+      localStorage.removeItem(artist + " isauctioning")
+      localStorage.removeItem(`hideTheButton${id}`)
 
-function initAuctionTimer(whenDone) {
-  let time = 120
 
-  let timerDiv = document.querySelectorAll("h2");
-  const biddingBtn = document.querySelector('#biddingBtn')
-  const highestBid = document.querySelector('#highestBid')
-
-  timerDiv.textContent = time
-
-  const intervalId = setInterval(function () {
-
-    time -= 1
-    timerDiv.textContent = time
-
-    if (time == 0) {
-      clearInterval(intervalId)
-      whenDone()
+      console.log(itemToEdit[0])
       // auction finished
       // set dateSold: new Date()
       // set priceSold: highestBid.textContent
       // disable bid button and input
       // clear global variable
 
-
-      // auction finished on the clock
+            // auction finished on the clock
 // remove clock from localStorage
 // remove localStorage.setItem(`hideTheButton${id}`, true)
 // is Auctioning false
@@ -320,10 +306,12 @@ function initAuctionTimer(whenDone) {
 
   }, 1000)
 
-  biddingBtn.addEventListener('click', function () {
-    time += 60;
-  })
 
+
+
+
+
+    return cardDiv;
 }
 
 
