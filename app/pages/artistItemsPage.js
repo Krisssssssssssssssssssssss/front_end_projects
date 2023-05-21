@@ -77,7 +77,7 @@ export const initArtistItems = function () {
     if (item.isPublished) {
       unpublishButton.textContent = "Unpublish";
     } else {
-      unpublishButton.textContent = "re-Publish";
+      unpublishButton.textContent = "Publish";
     }
     unpublishButton.addEventListener("click", function () {
       if (item.isPublished) {

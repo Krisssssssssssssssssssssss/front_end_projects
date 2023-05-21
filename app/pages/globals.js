@@ -24,11 +24,12 @@ window.addEventListener('hashchange', function (e) {
 
 })
 }
-export function createVisitorCard({ title, description, price, artist}, idx) {
+export function createVisitorCard({ title, description, price, artist, image}, idx) {
     const evenOdd = idx % 2 ? 'dark' : 'light';
-    const imageSrc = evenOdd === 'dark'
-      ? './app/css/img/unsplash_fRBpWLAcWIY.png'
-      : './app/css/img/unsplash_5MTf9XyVVgM.png';
+    const imageSrc = image;
+    // evenOdd === 'dark'
+    //   ? './app/css/img/unsplash_fRBpWLAcWIY.png'
+    //   : './app/css/img/unsplash_5MTf9XyVVgM.png';
 
     const cardHTML = `<div class="card visitor-card-${evenOdd}">
       <img class="card-img-top" src="${imageSrc}" alt="${title}">
@@ -203,7 +204,7 @@ let time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
       //   theActualHighestBid.textContent = JSON.parse(localStorage.getItem(`currentHighestBid${id}`))
         if (Number(biddingInput.value) > Number(theActualHighestBid.textContent)) {
           time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
-          time += 15;
+          time += 30;
           localStorage.setItem(`timeLeft${id}`, JSON.stringify(time))
           theActualHighestBid.textContent = biddingInput.value;
           localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
@@ -223,7 +224,7 @@ let time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
       
               if (data.isBidding) {
                 time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
-                time += 15;
+                time += 30;
                 localStorage.setItem(`timeLeft${id}`, JSON.stringify(time))
                 theActualHighestBid.textContent = data.bidAmount;
                 localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
@@ -253,35 +254,40 @@ let time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
   let timerDiv = document.createElement("p");
   timerDiv.className = "autionTimer"
   cardDiv.appendChild(timerDiv)
+
   time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`
   timerDiv.textContent = `Time left: ${convertTime(time)}`
+
+
   if (localStorage.getItem(`timeLeft${id}`)) {
     const intervalId = setInterval(function (e) {
     time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
      timerDiv.textContent = `Time left: ${convertTime(time)}`
+
       if (timerDiv.textContent == 'Time left: 00:00') {
+
         clearInterval(intervalId)
+        timerDiv.textContent = 'Auction Finished!';
+        biddingBtn.style.display = 'none';
+
+        localStorage.removeItem(`biddingHistory${id}`)
+        localStorage.removeItem(artist + " isauctioning")
+        localStorage.removeItem(`hideTheButton${id}`)
+        localStorage.removeItem(`timeLeft${id}`)
+        
+        
         let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
         let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
         if (!itemToEdit[0].priceSold) {
-          console.log(arrayToWorkWithWhileOnThisPage.length)
-          console.log(itemToEdit[0].priceSold)
           arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
           itemToEdit[0].dateSold = new Date();
-          console.log(arrayToWorkWithWhileOnThisPage.length)
           itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
           itemToEdit[0].isAuctioning = false;
-          console.log(itemToEdit[0])
-          
           arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
-          console.log(arrayToWorkWithWhileOnThisPage.length)
           localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage));
-          timerDiv.textContent = 'Auction Finished!';
-          localStorage.removeItem(`biddingHistory${id}`)
+
           localStorage.removeItem(`currentHighestBid${id}`)
-          localStorage.removeItem(artist + " isauctioning")
-          localStorage.removeItem(`hideTheButton${id}`)
-          localStorage.removeItem(`timeLeft${id}`)
+
         }
       }
     }, 1000)
