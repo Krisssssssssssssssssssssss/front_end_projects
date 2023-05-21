@@ -51,9 +51,8 @@ export function initAuctionPage() {
           const card = createAuctionCards(item);
           mainPartAuction.append(card);
          
-        //   const divForArtists = card.querySelectorAll('.artists-only');
+
           const divForVisitors = card.querySelectorAll('.div-to-show-to-visitors-only');
-        //   divForArtists.forEach(element => element.style.display = "none");
           divForVisitors.forEach(element => element.style.display = "block");
 
 

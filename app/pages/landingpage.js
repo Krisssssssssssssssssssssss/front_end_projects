@@ -2,9 +2,7 @@ import { setCurrentArtist } from "./globals.js";
 import { items } from "../../data/data.js";
 
 export function initLandingPage() {
-    // if (!localStorage.getItem("localStorageItemAray")) {
-    //     localStorage.setItem("localStorageItemAray", JSON.stringify(items));
-    // }
+
 
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())

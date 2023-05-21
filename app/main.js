@@ -11,7 +11,7 @@ import { initArtistAddNewItem } from "./pages/artistAddNewItem.js";
 import { dropdownMenuToggle } from "./pages/globals.js";
 import { items } from "../data/data.js";
 
-// Dropdown Menu from Global
+
 dropdownMenuToggle();
 
 function handleRoute(){
@@ -64,26 +64,20 @@ window.addEventListener('load', handleRoute)
 window.addEventListener('hashchange', handleRoute)
 
 window.addEventListener('load', checkIfTimerIsRunning)
-// window.addEventListener('hashchange', checkIfTimerIsRunning)
 
 function checkIfTimerIsRunning () {
    let time;
    localStorageItemAray.forEach(item => {
       if (localStorage.getItem(`timeLeft${item.id}`)){
         const intervalId = setInterval(function () {
-         if (localStorage.getItem(`timeLeft${item.id}`))
-         {
+
             time = Number(JSON.parse(localStorage.getItem(`timeLeft${item.id}`)));
-          if (time <= -10) {
-             localStorage.removeItem(`timeLeft${item.id}`)
-             clearInterval(intervalId)
-           }
             time -= 1
             localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
-         }
-         else {
-            localStorage.removeItem(`timeLeft${id}`)
-         }
+          if (time <= -10) {
+            //  localStorage.removeItem(`timeLeft${item.id}`)
+             clearInterval(intervalId)
+           }
          }, 1000)
       }
 

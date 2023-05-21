@@ -42,6 +42,7 @@ export const initArtistItems = function () {
     sendToAuctionButton.addEventListener("click", function () {
       if (!localStorage.getItem(getCurrentArtist() + " isauctioning")) {
         localStorage.setItem(getCurrentArtist() + " isauctioning", "auctioning");
+        localStorage.setItem(`currentHighestBid${item.id}`, 0);
         item.isAuctioning = true;
 
         localStorage.setItem(
@@ -50,7 +51,7 @@ export const initArtistItems = function () {
         );
         sendToAuctionButton.innerText = "Already Auctioning";
         
-        let time = 120;
+        let time = 50;
         localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
         const intervalId = setInterval(function () {
           time -= 1
