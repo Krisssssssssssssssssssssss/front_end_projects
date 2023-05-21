@@ -256,26 +256,33 @@ let time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
   time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`
   timerDiv.textContent = `Time left: ${convertTime(time)}`
   if (localStorage.getItem(`timeLeft${id}`)) {
-    const intervalId = setInterval(function () {
+    const intervalId = setInterval(function (e) {
     time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
      timerDiv.textContent = `Time left: ${convertTime(time)}`
       if (timerDiv.textContent == 'Time left: 00:00') {
         clearInterval(intervalId)
-        timerDiv.textContent = 'Auction Finished!';
         let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
         let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
-        arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
-       itemToEdit[0].dateSold = new Date();
-       itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
-       itemToEdit[0].isAuctioning = false;
-        arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
-
-        localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage));
-        localStorage.removeItem(`biddingHistory${id}`)
-        localStorage.removeItem(`currentHighestBid${id}`)
-        localStorage.removeItem(artist + " isauctioning")
-        localStorage.removeItem(`hideTheButton${id}`)
-        localStorage.removeItem(`timeLeft${id}`)
+        if (!itemToEdit.priceSold) {
+          console.log(arrayToWorkWithWhileOnThisPage.length)
+          console.log(itemToEdit[0].priceSold)
+          arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
+          itemToEdit[0].dateSold = new Date();
+          console.log(arrayToWorkWithWhileOnThisPage.length)
+          itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
+          itemToEdit[0].isAuctioning = false;
+          console.log(itemToEdit[0])
+          
+          arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
+          console.log(arrayToWorkWithWhileOnThisPage.length)
+          localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage));
+          timerDiv.textContent = 'Auction Finished!';
+          localStorage.removeItem(`biddingHistory${id}`)
+          localStorage.removeItem(`currentHighestBid${id}`)
+          localStorage.removeItem(artist + " isauctioning")
+          localStorage.removeItem(`hideTheButton${id}`)
+          localStorage.removeItem(`timeLeft${id}`)
+        }
       }
     }, 1000)
   }

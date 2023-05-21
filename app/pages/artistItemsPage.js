@@ -51,7 +51,7 @@ export const initArtistItems = function () {
         );
         sendToAuctionButton.innerText = "Already Auctioning";
         
-        let time = 50;
+        let time = 60;
         localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
         const intervalId = setInterval(function () {
           time -= 1
