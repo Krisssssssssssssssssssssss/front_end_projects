@@ -49,15 +49,14 @@ export const initArtistItems = function () {
           JSON.stringify(localStorageItemAray)
         );
         sendToAuctionButton.innerText = "Already Auctioning";
+        
         let time = 120;
         localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
         const intervalId = setInterval(function () {
-         
           time -= 1
           localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
-          if (time <= 0) {
+          if (time <= -10) {
             clearInterval(intervalId)
-            localStorage.removeItem(`timeLeft${item.id}`)
           }
         }, 1000)
       } else {

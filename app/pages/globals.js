@@ -96,7 +96,7 @@ export function createArtistItemsPageCard({ title, price, description, img = './
     cardDiv.appendChild(cardBodyDiv);
     return cardDiv;
 }
-
+export let auctionTimeId;
 export function createAuctionCards ({image, title, artist, id}) {
    const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
@@ -202,10 +202,9 @@ let time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
       // if (biddingInput.value > theActualHighestBid) {
       //   theActualHighestBid.textContent = JSON.parse(localStorage.getItem(`currentHighestBid${id}`))
         if (Number(biddingInput.value) > Number(theActualHighestBid.textContent)) {
-          time += 10;
+          time += 15;
+          localStorage.setItem(`timeLeft${id}`, JSON.stringify(time))
           theActualHighestBid.textContent = biddingInput.value;
-          console.log(biddingInput.value)
-          // console.log(theActualHighestBid.text)
           localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
           biddingHistoryList.innerHTML += `<li class="mine">&rarr; You bidded: $${biddingInput.value}</li>`;
           localStorage.setItem(`biddingHistory${id}`, JSON.stringify(biddingHistoryList.innerHTML));
@@ -222,7 +221,8 @@ let time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
             .then(data => {
       
               if (data.isBidding) {
-                time += 10;
+                time += 15;
+                localStorage.setItem(`timeLeft${id}`, JSON.stringify(time))
                 theActualHighestBid.textContent = data.bidAmount;
                 localStorage.setItem(`currentHighestBid${id}`, JSON.stringify(theActualHighestBid.textContent));
                 biddingHistoryList.innerHTML += `<li class="theirs">&rarr; Someone else bidded: $${data.bidAmount}</li>`
@@ -254,57 +254,56 @@ let time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
   timerDiv.className = "autionTimer"
   cardDiv.appendChild(timerDiv)
   
+  timerDiv.textContent = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`
+  if (localStorage.getItem(`timeLeft${id}`)) {
+    const intervalId = setInterval(function () {
+     time = Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)));
+     timerDiv.textContent = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`
+  
+      if (timerDiv.textContent <= 0) {
+        clearInterval(intervalId)
+        timerDiv.textContent = 'Auction Finished!';
+        let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
+        let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
+        
+        arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
+  
+       itemToEdit[0].dateSold = new Date();
+       itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
+       itemToEdit[0].isAuctioning = false;
+        arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
+        localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage));
+  
+  
+        localStorage.removeItem(`timeLeft${id}`)
+        localStorage.removeItem(`biddingHistory${id}`)
+        localStorage.removeItem(`currentHighestBid${id}`)
+        localStorage.removeItem(artist + " isauctioning")
+        localStorage.removeItem(`hideTheButton${id}`)
+        localStorage.removeItem(`timeLeft${id}`)
+  
+  
+        // auction finished
+        // set dateSold: new Date()
+        // set priceSold: highestBid.textContent
+        // disable bid button and input
+        // clear global variable
+  
+              // auction finished on the clock
+  // remove clock from localStorage
+  // remove localStorage.setItem(`hideTheButton${id}`, true)
+  // is Auctioning false
+  // date sold
+  // price sold
+  // price sold: current highest bid
+  // localStorage.getItem(`currentHighestBid${id}`)
+  // localStorage.getItem(`biddingHistory${id}`)
+  // localStorage.getItem(getCurrentArtist() + " isauctioning")   ==== moze da se zeme "artist" od parametar
+      }
+  
+    }, 1000)
+  }
 
-  timerDiv.textContent = time;
-
-  const intervalId = setInterval(function () {
-
-    time -= 1
-    timerDiv.textContent = `Time left: ${time}s`
-
-    if (time <= 0) {
-      clearInterval(intervalId)
-      timerDiv.textContent = 'Auction Finished!';
-      let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
-      let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
-      
-      arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
-
-     itemToEdit[0].dateSold = new Date();
-     itemToEdit[0].priceSold =  Number(JSON.parse(localStorage.getItem(`currentHighestBid${id}`)));
-     itemToEdit[0].isAuctioning = false;
-      arrayToWorkWithWhileOnThisPage.push(itemToEdit[0]);
-      localStorage.setItem('localStorageItemAray', JSON.stringify(arrayToWorkWithWhileOnThisPage))
-
-
-      localStorage.removeItem(`timeLeft${id}`)
-      localStorage.removeItem(`biddingHistory${id}`)
-      localStorage.removeItem(`currentHighestBid${id}`)
-      localStorage.removeItem(`timeLeft${id}`)
-      localStorage.removeItem(artist + " isauctioning")
-      localStorage.removeItem(`hideTheButton${id}`)
-
-
-      console.log(itemToEdit[0])
-      // auction finished
-      // set dateSold: new Date()
-      // set priceSold: highestBid.textContent
-      // disable bid button and input
-      // clear global variable
-
-            // auction finished on the clock
-// remove clock from localStorage
-// remove localStorage.setItem(`hideTheButton${id}`, true)
-// is Auctioning false
-// date sold
-// price sold
-// price sold: current highest bid
-// localStorage.getItem(`currentHighestBid${id}`)
-// localStorage.getItem(`biddingHistory${id}`)
-// localStorage.getItem(getCurrentArtist() + " isauctioning")   ==== moze da se zeme "artist" od parametar
-    }
-
-  }, 1000)
 
 
 

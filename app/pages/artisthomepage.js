@@ -32,7 +32,7 @@ export function initArtistPage() {
     totalIncomeSpan.innerText = totalIncome;
     artistItems.forEach(item => {
         if(item.isAuctioning){
-            liveAuctioningItem.innerText = JSON.parse(localStorage.getItem(`currentHighestBid${item.id}`).toString())
+            liveAuctioningItem.innerText = JSON.parse(localStorage.getItem(`currentHighestBid${item.id}`))
         }
 
     })
