@@ -40,6 +40,10 @@ export const initArtistItems = function () {
       ? "Send to Auction"
       : "Already Auctioning!";
     sendToAuctionButton.addEventListener("click", function () {
+      if (item.priceSold) {
+        alert('You can not auction an already sold Item, please upload a new art-item and give our auction a go :)')
+      }
+    else {
       if (!localStorage.getItem(getCurrentArtist() + " isauctioning")) {
         localStorage.setItem(getCurrentArtist() + " isauctioning", "auctioning");
         localStorage.setItem(`currentHighestBid${item.id}`, 0);
@@ -51,7 +55,7 @@ export const initArtistItems = function () {
         );
         sendToAuctionButton.innerText = "Already Auctioning";
         
-        let time = 60;
+        let time = 120;
         localStorage.setItem(`timeLeft${item.id}`, JSON.stringify(time))
         const intervalId = setInterval(function () {
           time -= 1
@@ -63,6 +67,7 @@ export const initArtistItems = function () {
       } else {
         alert("You already have an Item that is auctioning!");
       }
+    }
     });
 
     actionButtons.appendChild(sendToAuctionButton);

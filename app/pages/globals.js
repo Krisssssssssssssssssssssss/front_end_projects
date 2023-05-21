@@ -47,12 +47,12 @@ export function createVisitorCard({ title, description, price, artist}, idx) {
     return cardHTML;
 }
 
-export function createArtistItemsPageCard({ title, price, description, img = './app/css/img/unsplash_5MTf9XyVVgM.png'}) {
+export function createArtistItemsPageCard({ title, price, description, image}) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
 
 
-    let imageSrc = img;
+    let imageSrc = image;
     const imgElem = document.createElement('img');
     imgElem.classList.add('card-img-top');
     imgElem.src = imageSrc;
@@ -263,7 +263,7 @@ let time = `${Number(JSON.parse(localStorage.getItem(`timeLeft${id}`)))}`;
         clearInterval(intervalId)
         let arrayToWorkWithWhileOnThisPage = JSON.parse(localStorage.getItem('localStorageItemAray'));
         let itemToEdit = arrayToWorkWithWhileOnThisPage.filter(item => item.id === id)
-        if (!itemToEdit.priceSold) {
+        if (!itemToEdit[0].priceSold) {
           console.log(arrayToWorkWithWhileOnThisPage.length)
           console.log(itemToEdit[0].priceSold)
           arrayToWorkWithWhileOnThisPage.splice(arrayToWorkWithWhileOnThisPage.indexOf(itemToEdit[0]), 1)
