@@ -1,4 +1,4 @@
-Wellcome to my main vanilla JavaScript Project - The Street Artist!
+Wellcome to a vanilla JavaScript Project - The Street Artist! One that I made back in the days when I was walking my first JavaScript steps
 
 This is a mobile app, so for best user experience, please narrow the screen size when checking it out.
 
